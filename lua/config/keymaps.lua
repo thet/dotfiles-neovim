@@ -3,6 +3,9 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
+vim.g.mapleader = ","
+
+
 -- Yank'in
 -- -------
 
