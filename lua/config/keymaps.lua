@@ -16,3 +16,19 @@ end, { desc = "Delete Buffer" })
 
 -- Open buffer relative to current one
 --map("n", "<leader>e", "<cmd>n %:h/", { desc = "Open buffer relative to current one", remap = true })
+--
+
+-- FOLDS
+--------
+
+map("n", "<C-S-Right>", "zo", { desc = "Open current fold", remap = true })
+map("n", "<C-S-Left>", "zc", { desc = "Close current fold", remap = true })
+
+--"" open/close all folds
+--""noremap <C-TAB> za
+--""noremap <C-S-TAB> zA
+--noremap <C-S-Right> zo
+--noremap <C-S-Left> zc
+--"" termit might override usage of -A-
+--""noremap <C-S-A-Right> zO
+--""noremap <C-S-A-Left> zC
