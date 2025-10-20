@@ -55,20 +55,18 @@ map("n", "<C-x>", function()
 end, { desc = "Delete Buffer" })
 
 -- Open buffer relative to current one
---map("n", "<leader>e", "<cmd>n %:h/", { desc = "Open buffer relative to current one", remap = true })
---
+map("n", "<leader>e", ":edit %:h/<Left>", {
+  desc = "Edit new file in current file's directory",
+  noremap = true,
+  silent = false,
+})
 
 -- FOLDS
 --------
 
+-- Current fold
 map("n", "<C-S-Right>", "zo", { desc = "Open current fold", remap = true })
 map("n", "<C-S-Left>", "zc", { desc = "Close current fold", remap = true })
-
---"" open/close all folds
---""noremap <C-TAB> za
---""noremap <C-S-TAB> zA
---noremap <C-S-Right> zo
---noremap <C-S-Left> zc
---"" termit might override usage of -A-
---""noremap <C-S-A-Right> zO
---""noremap <C-S-A-Left> zC
+-- Recursive open/close at cursor
+map("n", "<A-Right>", "zO", { desc = "Open all folds under cursor.", noremap = true, silent = true })
+map("n", "<A-Left>", "zC", { desc = "Close all folds under cursor.", noremap = true, silent = true })
