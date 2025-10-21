@@ -110,3 +110,17 @@ map(
   [[vap:s/\([\.\?!;]\) \+/\1\r/e<CR>]],
   { desc = "Split sentences in paragraph", noremap = true, silent = true }
 )
+
+-- helper to preserve view and search register when running a command
+local function preserve(cmd)
+  local view = vim.fn.winsaveview()
+  local search = vim.fn.getreg("/")
+  vim.cmd(cmd)
+  vim.fn.winrestview(view)
+  vim.fn.setreg("/", search)
+end
+
+-- Strip trailing whitespace in the whole file, preserving view and search register
+vim.keymap.set("n", "<leader>s", function()
+  preserve([[%s/\s\+$//e]])
+end, { desc = "Strip trailing whitespace", noremap = true, silent = true })
