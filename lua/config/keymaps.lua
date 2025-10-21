@@ -70,3 +70,24 @@ map("n", "<C-S-Left>", "zc", { desc = "Close current fold", remap = true })
 -- Recursive open/close at cursor
 map("n", "<A-Right>", "zO", { desc = "Open all folds under cursor.", noremap = true, silent = true })
 map("n", "<A-Left>", "zC", { desc = "Close all folds under cursor.", noremap = true, silent = true })
+
+-- Text formatting helpers
+-- -----------------------
+
+-- Wrap the current paragraph on `textwidth`.
+map("n", "<leader>w", "gqip", { desc = "Wrap paragraph (gqip)", noremap = true, silent = true })
+
+-- Join text: select inner paragraph, join, move to first non-blank.
+map("n", "<leader>j", "vipJ^", { desc = "Join paragraph (vipJ^)", noremap = true, silent = true })
+
+-- Split each sentence onto its own line within the paragraph
+-- Matches ., ?, !, ; followed by spaces and inserts a newline after the punctuation.
+map(
+  "n",
+  "<leader>k",
+  [[vap:s/\([\.\?!;]\) \+/\1\r/e<CR>]],
+  { desc = "Split sentences in paragraph", noremap = true, silent = true }
+)
+
+-- GitSign
+-- -------
