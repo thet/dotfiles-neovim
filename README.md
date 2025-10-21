@@ -13,6 +13,17 @@ npm install\
     markdown-toc
 ```
 
+## documentation
+
+https://github.com/folke/lazy.nvim
+https://www.lazyvim.org/
+
+https://www.lazyvim.org/keymaps
+
+https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+
+https://neovim.io/doc/user/diagnostic.html
+
 ## References
 
 markdownlint-cli2 / Markdownlint rules
