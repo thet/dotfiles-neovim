@@ -39,4 +39,8 @@ gitsigns-nvim
 <https://github.com/lewis6991/gitsigns.nvim>
 <https://www.lazyvim.org/plugins/editor#gitsignsnvim>
 
+Copilot
+https://www.lazyvim.org/extras/ai/copilot
+https://github.com/zbirenbaum/copilot.lua
+
 #
