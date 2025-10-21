@@ -7,7 +7,11 @@ return {
           python = {
             analysis = {
               -- Add your buildout directories here
-              extraPaths = { "src", "eggs", "parts" },
+              extraPaths = {
+                "src",
+                --"eggs",
+                "parts/omelette",
+              },
 
               verboseOutput = true,
 
