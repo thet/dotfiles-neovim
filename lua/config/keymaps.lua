@@ -3,8 +3,6 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
-vim.g.mapleader = ","
-
 -- Select all
 map({ "n", "v", "x" }, "<C-a>", "ggVG", { desc = "Select all.", noremap = true, silent = true })
 
