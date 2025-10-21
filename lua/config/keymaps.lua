@@ -75,9 +75,33 @@ map("n", "<A-Left>", "zC", { desc = "Close all folds under cursor.", noremap = t
 -- -----------------------
 
 -- Wrap the current paragraph on `textwidth`.
-map("n", "<leader>w", "gqip", { desc = "Wrap paragraph (gqip)", noremap = true, silent = true })
+map("n", "<leader>w", function()
+  -- Save original formatexpr and formatprg
+  local fx, fp = vim.bo.formatexpr, vim.bo.formatprg
+  -- Unset both
+  vim.bo.formatexpr, vim.bo.formatprg = "", ""
+  -- Wrap bypassing formatexpr, formatprg
+  vim.cmd.normal({ args = { "gwip" }, bang = true })
+  -- Restore original
+  vim.bo.formatexpr, vim.bo.formatprg = fx, fp
+end, { desc = "Wrap paragraph (internal gqip, uses textwidth)", noremap = true, silent = true })
 
 -- Join text: select inner paragraph, join, move to first non-blank.
+map("n", "<leader>j", function()
+  -- Avoid Treesitter recomputing folds while joining, which would lead in a noisy traceback.
+  -- Return on special buffers.
+  if vim.bo.buftype ~= "" then
+    return
+  end
+  local bufnr = 0
+  -- Stop tresitter
+  pcall(vim.treesitter.stop, bufnr)
+  -- Do the joining.
+  pcall(vim.cmd.normal, { "vipJ^", bang = true })
+  -- Restore
+  pcall(vim.treesitter.start, bufnr)
+end, { desc = "Join paragraph (TS stop/start)", silent = true, noremap = true })
+
 map("n", "<leader>j", "vipJ^", { desc = "Join paragraph (vipJ^)", noremap = true, silent = true })
 
 -- Split each sentence onto its own line within the paragraph
@@ -88,6 +112,3 @@ map(
   [[vap:s/\([\.\?!;]\) \+/\1\r/e<CR>]],
   { desc = "Split sentences in paragraph", noremap = true, silent = true }
 )
-
--- GitSign
--- -------
