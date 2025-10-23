@@ -121,6 +121,11 @@ local function preserve(cmd)
 end
 
 -- Strip trailing whitespace in the whole file, preserving view and search register
-vim.keymap.set("n", "<leader>s", function()
+map("n", "<leader>s", function()
   preserve([[%s/\s\+$//e]])
 end, { desc = "Strip trailing whitespace", noremap = true, silent = true })
+
+-- Plugins
+
+-- https://github.com/hedyhli/outline.nvim
+map("n", "tt", "<cmd>Outline<cr>", { desc = "Toggle Outline", noremap = true, silent = true })
