@@ -13,6 +13,14 @@ npm install\
     markdown-toc
 ```
 
+## cheatsheet
+
+query the value for a setting:
+
+```vim
+set parameter?
+```
+
 ## documentation
 
 https://github.com/folke/lazy.nvim
@@ -40,7 +48,13 @@ gitsigns-nvim
 <https://www.lazyvim.org/plugins/editor#gitsignsnvim>
 
 Copilot
-https://www.lazyvim.org/extras/ai/copilot
-https://github.com/zbirenbaum/copilot.lua
+<https://www.lazyvim.org/extras/ai/copilot>
+<https://github.com/zbirenbaum/copilot.lua>
 
-#
+outline.nvim
+<https://www.lazyvim.org/extras/editor/outline#outlinenvim>
+<https://github.com/hedyhli/outline.nvim>
+
+edgy.nvim - window layouts
+<https://www.lazyvim.org/extras/editor/outline#edgynvim-optional>
+<https://github.com/folke/edgy.nvim>
