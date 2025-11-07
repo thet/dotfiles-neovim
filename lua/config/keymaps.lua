@@ -6,6 +6,8 @@ local map = vim.keymap.set
 -- Select all
 map({ "n", "v", "x" }, "<C-a>", "ggVG", { desc = "Select all.", noremap = true, silent = true })
 
+-- Repeat last change for every line in the visual/select selection
+map({ "x", "s" }, ".", ":normal .<CR>", { desc = "Repeat last change (visual/select)", noremap = true, silent = true })
 
 -- Yank'in
 -- -------
@@ -53,7 +55,7 @@ map("n", "<C-x>", function()
 end, { desc = "Delete Buffer" })
 
 -- Open buffer relative to current one
-map("n", "<leader>e", ":edit %:h/<Left>", {
+map("n", "<leader>e", ":edit %:h/", {
   desc = "Edit new file in current file's directory",
   noremap = true,
   silent = false,
