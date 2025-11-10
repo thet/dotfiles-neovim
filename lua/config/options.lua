@@ -5,4 +5,5 @@
 -- set leader
 vim.g.mapleader = ","
 
+-- default foldmethod indent.
 vim.opt.foldmethod = "indent"
