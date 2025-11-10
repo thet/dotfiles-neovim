@@ -126,8 +126,3 @@ end
 map("n", "<leader>s", function()
   preserve([[%s/\s\+$//e]])
 end, { desc = "Strip trailing whitespace", noremap = true, silent = true })
-
--- Plugins
-
--- https://github.com/hedyhli/outline.nvim
-map("n", "tt", "<cmd>Outline<cr>", { desc = "Toggle Outline", noremap = true, silent = true })
