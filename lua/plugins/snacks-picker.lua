@@ -1,5 +1,6 @@
 -- https://github.com/folke/snacks.nvim
 -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
+-- https://github.com/folke/snacks.nvim/blob/main/docs/gh.md
 -- https://github.com/jhawthorn/fzy
 -- https://github.com/sharkdp/fd
 return {
