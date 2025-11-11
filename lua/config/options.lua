@@ -7,3 +7,6 @@ vim.g.mapleader = ","
 
 -- default foldmethod indent.
 vim.opt.foldmethod = "indent"
+
+-- Define the LazyVim picker implementation.
+vim.g.lazyvim_picker = "snacks"
