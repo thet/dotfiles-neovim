@@ -4,6 +4,6 @@
 return {
   {
     "MeanderingProgrammer/render-markdown.nvim",
-    ft = { "markdown" },
+    ft = { "markdown", "codecompanion" },
   },
 }
