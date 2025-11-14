@@ -555,7 +555,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
             model = "claude-haiku-4.5",
           },
           roles = {
-            user = "olimorris",
+            user = "thet",
           },
           keymaps = {
             send = {
