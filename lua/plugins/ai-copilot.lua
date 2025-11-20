@@ -1,6 +1,7 @@
 return {
   -- https://github.com/zbirenbaum/copilot.lua
   -- https://github.com/zbirenbaum/copilot-cmp
+  -- https://github.com/fang2hou/blink-copilot?tab=readme-ov-file#-recipes
   {
     "zbirenbaum/copilot.lua",
     dependencies = {
