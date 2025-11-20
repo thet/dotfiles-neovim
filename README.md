@@ -46,6 +46,8 @@ https://neovim.io/doc/user/diagnostic.html
 
 ## References
 
+https://github.com/neovim/nvim-lspconfig
+
 markdownlint-cli2 / Markdownlint rules
 <https://github.com/DavidAnson/markdownlint/blob/main/doc/Rules.md#md034---bare-url-used>
 <https://pymarkdown.readthedocs.io/en/stable/plugins/rule_md034/>
