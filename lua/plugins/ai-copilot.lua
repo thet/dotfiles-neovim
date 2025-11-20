@@ -43,21 +43,19 @@ return {
       local utils = require("utils")
 
       -- 🔐 Disable copilot for secret files via an autocommand.
-      vim.api.nvim_create_autocmd("LspAttach", {
-        group = vim.api.nvim_create_augroup("copilot_ls_secrets", { clear = true }),
+      vim.api.nvim_create_autocmd({ "BufReadPost", "BufNewFile" }, {
+        group = vim.api.nvim_create_augroup("copilot_lsp_secrets", { clear = true }),
         callback = function(args)
-          local client = vim.lsp.get_client_by_id(args.data.client_id)
-          if not client or not client.name:match("copilot") then
-            return
-          end
-
           local bufnr = args.buf
           local path = vim.api.nvim_buf_get_name(bufnr)
 
           if utils.is_secrets_file(path) then
-            vim.schedule(function()
-              vim.lsp.buf_detach_client(bufnr, client.id)
-            end)
+            -- detach any Copilot-related LSP clients from this buffer
+            for _, client in ipairs(vim.lsp.get_clients({ bufnr = bufnr })) do
+              if client.name == "copilot" or client.name == "copilot_ls" then
+                vim.lsp.buf_detach_client(bufnr, client.id)
+              end
+            end
           end
         end,
       })
