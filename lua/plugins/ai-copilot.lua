@@ -21,6 +21,19 @@ return {
       filetypes = {
         markdown = true,
         help = true,
+        -- disable for secret files.
+        sh = function()
+          if
+            string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env")
+            or string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "%.gpg$")
+            or string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "%.pgp$")
+            or string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^vault.yml$")
+          then
+            -- disable for .env*, *.gpg, *.pgp, vault.yml files
+            return false
+          end
+          return true
+        end,
       },
       -- copilot-lsp integration.
       nes = {
