@@ -21,6 +21,18 @@ query the value for a setting:
 set parameter?
 ```
 
+Query a buffer variable:
+
+```vim
+:echo b:variable_name
+```
+
+Check editorconfig status:
+
+```vim
+:echo b:editorconfg
+```
+
 ## documentation
 
 https://github.com/folke/lazy.nvim
