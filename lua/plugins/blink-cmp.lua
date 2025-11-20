@@ -1,3 +1,5 @@
+local utils = require("utils")
+
 return {
   -- https://github.com/Saghen/blink.cmp
   -- https://cmp.saghen.dev/installation
@@ -46,6 +48,11 @@ return {
             module = "blink-copilot",
             score_offset = 100,
             async = true,
+
+            -- 🔐 Disable copilot for secret files.
+            enabled = function()
+              return not utils.is_secrets_file()
+            end,
           },
         },
       },

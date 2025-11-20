@@ -19,20 +19,10 @@ return {
         enabled = false,
       },
       filetypes = {
-        markdown = true,
-        help = true,
-        -- disable for secret files.
-        sh = function()
-          if
-            string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^%.env")
-            or string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "%.gpg$")
-            or string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "%.pgp$")
-            or string.match(vim.fs.basename(vim.api.nvim_buf_get_name(0)), "^vault.yml$")
-          then
-            -- disable for .env*, *.gpg, *.pgp, vault.yml files
-            return false
-          end
-          return true
+        -- 🔐 Disable copilot for secret files, enable for the rest.
+        ["*"] = function()
+          local utils = require("utils")
+          return not utils.is_secrets_file()
         end,
       },
       -- copilot-lsp integration.
@@ -49,6 +39,28 @@ return {
     init = function()
       vim.g.copilot_nes_debounce = 500
       vim.lsp.enable("copilot_ls")
+
+      local utils = require("utils")
+
+      -- 🔐 Disable copilot for secret files via an autocommand.
+      vim.api.nvim_create_autocmd({ "LspAttach" }, {
+        callback = function(args)
+          local client = vim.lsp.get_client_by_id(args.data.client_id)
+          if client == nil then
+            return
+          end
+          if client.name ~= "copilot" then
+            return
+          end
+
+          local bufnr = args.buf
+          local path = vim.api.nvim_buf_get_name(bufnr)
+
+          if utils.is_secrets_file(path) then
+            vim.lsp.buf_detach_client(bufnr, client.id)
+          end
+        end,
+      })
     end,
   },
 }
