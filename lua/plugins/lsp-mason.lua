@@ -7,6 +7,7 @@ return {
     opts = {
       ensure_installed = {
         "copilot-language-server",
+        "biome",
         "stylua",
         "shfmt",
       },
