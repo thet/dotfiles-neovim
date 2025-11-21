@@ -1,14 +1,29 @@
--- https://github.com/hedyhli/outline.nvim
 return {
+  --    https://github.com/stevearc/aerial.nvim
   {
-    "hedyhli/outline.nvim",
+    "stevearc/aerial.nvim",
     lazy = true,
-    cmd = { "Outline", "OutlineOpen" },
-    keys = {
-      { "tt", "<cmd>Outline<CR>", desc = "Toggle outline" },
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-tree/nvim-web-devicons",
     },
-    opts = {
-      -- Your setup opts here
+    keys = {
+      {
+        "tt",
+        "<cmd>AerialToggle<CR>",
+        desc = "Toggle outline",
+      },
     },
   },
+  -- https://github.com/hedyhli/outline.nvim
+  --{
+  --  "hedyhli/outline.nvim",
+  --  lazy = true,
+  --  cmd = { "Outline", "OutlineOpen" },
+  --  keys = {
+  --    {
+  --      "tt", "<cmd>Outline<CR>", desc = "Toggle outline"
+  --    },
+  --  },
+  --},
 }
