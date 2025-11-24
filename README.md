@@ -103,6 +103,8 @@ https://github.com/SmiteshP/nvim-navic
 https://github.com/nvim-mini/mini.diff
 https://github.com/gbprod/yanky.nvim
 https://github.com/mbbill/undotree
+https://github.com/rebelot/heirline.nvim
+https://github.com/j-hui/fidget.nvim
 
 https://github.com/chrisjsewell/rst-language-server
 https://pypi.org/project/rst-language-server/
