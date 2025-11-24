@@ -55,6 +55,10 @@ https://neovim.io/doc/user/lua-guide.html
 
 ## References
 
+vim search multiple words at once
+e.g. `/\vsite-(home|logo)` for site-home and site-logo
+https://gemini.google.com/app/4c8980443182ab26
+
 translate vim script to lazyvim lua
 https://chatgpt.com/c/68f69bcf-1ba0-8333-827e-a0bf0726e11b
 

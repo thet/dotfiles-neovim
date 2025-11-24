@@ -3,6 +3,13 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
+-- Searchin'
+-- Allow for searching multiple words at once - e.g. `/\vsite-(home|logo)` for site-home and site-logo
+-- Forward search, normal mode: Set search to very magic - makes regex searches the default
+vim.keymap.set("n", "/", "/\\v", { noremap = true, silent = true })
+-- Backwards search, normal mode: Set search to very magic - makes regex searches the default
+vim.keymap.set("n", "?", "?\\v", { noremap = true, silent = true })
+
 -- Select all
 map({ "n", "v", "x" }, "<C-a>", "ggVG", { desc = "Select all.", noremap = true, silent = true })
 
