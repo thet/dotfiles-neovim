@@ -10,6 +10,7 @@ return {
         "biome",
         "stylua",
         "shfmt",
+        "tailwindcss-language-server",
       },
     },
   },
