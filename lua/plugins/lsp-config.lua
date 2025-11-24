@@ -11,12 +11,13 @@ return {
             -- https://biomejs.dev/reference/configuration/
             biome = {
               formatter = {
+                -- https://biomejs.dev/reference/configuration/#formatteruseeditorconfig
                 useEditorConfig = true,
               },
             },
           },
 
-          -- Get the root dir. Biome doesn't find it by itself.
+          -- Get the root dir. Biome doesn't find it by itself. Necessary for respecting .editconfig.
           root_dir = function(bufnr, on_dir)
             -- 1. Get the full path of the current buffer
             local startpath = vim.api.nvim_buf_get_name(bufnr)
@@ -27,6 +28,7 @@ return {
 
             -- 2. Find the project root by looking upwards for common markers
             local root = vim.fs.root(startpath, {
+              ".editconfig",
               "biome.json",
               "biome.jsonc",
               "package.json",
