@@ -3,7 +3,10 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
+-- ------
 -- Savin'
+-- ------
+
 -- :W or :Wa should write/write all
 -- Create custom commands
 vim.api.nvim_create_user_command("W", function()
@@ -18,7 +21,10 @@ vim.api.nvim_create_user_command("W!!", function()
   vim.cmd("edit!")
 end, {})
 
+-- ---------
 -- Searchin'
+-- ---------
+
 -- Allow for searching multiple words at once - e.g. `/\vsite-(home|logo)` for site-home and site-logo
 -- Forward search, normal mode: Set search to very magic - makes regex searches the default
 map("n", "/", "/\\v", { noremap = true, silent = true })
@@ -31,32 +37,31 @@ map({ "n", "v", "x" }, "<C-a>", "ggVG", { desc = "Select all.", noremap = true, 
 -- Repeat last change for every line in the visual/select selection
 map({ "x", "s" }, ".", ":normal .<CR>", { desc = "Repeat last change (visual/select)", noremap = true, silent = true })
 
+-- -------
 -- Yank'in
 -- -------
 
 -- stylua: ignore start
-
 -- 🗑️ Delete key: send deletions to the black-hole register to not overwrite other yank registers.
 -- Thanks bairu from #vim!
 map({ "n", "v", "x" }, "<Del>", '"_x', { desc = "<Del> into blackhole.", noremap = true, silent = true })
-
+--
 -- 📋 System clipboard: Copy, Paste, Delete
 -- Copy to system clipboard
 map('n', '1', '"+yy', { desc = "Copy line to system clipboard", noremap = true, silent = true })
 map('x', '1', '"+y',  { desc = "Copy selection to system clipboard", noremap = true, silent = true })
-
+--
 -- Paste BEFORE (like 'P')
 map('n', '2', '"+p',  { desc = "Paste from system clipboard (after cursor)", noremap = true, silent = true })
 map('x', '2', '"_d"+P', { desc = "Paste from system clipboard (preserve +, before selection)", noremap = true, silent = true })
-
+--
 -- Paste AFTER (like 'p')
 map('n', '@', '"+P',  { desc = "Paste from system clipboard (before cursor)", noremap = true, silent = true })
 map('x', '@', '"_d"+p', { desc = "Paste from system clipboard (preserve +, after selection)", noremap = true, silent = true })
-
+--
 -- Delete into system clipboard
 map('n', '3', '"+dd', { desc = "Delete line into system clipboard", noremap = true, silent = true })
 map('x', '3', '"+d',  { desc = "Delete selection into system clipboard", noremap = true, silent = true })
-
 
 -- 🧷 Paste selected text into the command line
 -- In normal mode: yank the current line, start command-line, paste the yanked text
@@ -67,11 +72,12 @@ map('x', ';', 'y:<C-r>"<C-b>', { desc = 'Paste visual selection into command lin
 -- 📁 Copy filename/path to clipboard
 map('n', '<leader>cs', ':let @+=expand("%")<CR>', { desc = 'Copy relative file path to clipboard', noremap = true, silent = true })
 map('n', '<leader>cl', ':let @+=expand("%:p")<CR>', { desc = 'Copy absolute file path to clipboard', noremap = true, silent = true })
-
 -- stylua: ignore end
 
+-- -------
 -- Buffers
 -- -------
+
 map("n", "<C-x>", function()
   Snacks.bufdelete()
 end, { desc = "Delete Buffer" })
@@ -83,8 +89,9 @@ map("n", "<leader>e", ":edit %:h/", {
   silent = false,
 })
 
+-- -----
 -- FOLDS
---------
+-- -----
 
 -- Current fold
 map("n", "<C-S-Right>", "zo", { desc = "Open current fold", remap = true })
@@ -93,6 +100,7 @@ map("n", "<C-S-Left>", "zc", { desc = "Close current fold", remap = true })
 map("n", "<A-Right>", "zO", { desc = "Open all folds under cursor.", noremap = true, silent = true })
 map("n", "<A-Left>", "zC", { desc = "Close all folds under cursor.", noremap = true, silent = true })
 
+-- -----------------------
 -- Text formatting helpers
 -- -----------------------
 
@@ -149,7 +157,9 @@ map("n", "<leader>s", function()
   preserve([[%s/\s\+$//e]])
 end, { desc = "Strip trailing whitespace", noremap = true, silent = true })
 
+-- ---
 -- LSP
+-- ---
 
 -- Show documentation
 -- Normal mode: keep the classic "K shows docs" (if you want)
