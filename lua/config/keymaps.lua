@@ -21,9 +21,9 @@ end, {})
 -- Searchin'
 -- Allow for searching multiple words at once - e.g. `/\vsite-(home|logo)` for site-home and site-logo
 -- Forward search, normal mode: Set search to very magic - makes regex searches the default
-vim.keymap.set("n", "/", "/\\v", { noremap = true, silent = true })
+map("n", "/", "/\\v", { noremap = true, silent = true })
 -- Backwards search, normal mode: Set search to very magic - makes regex searches the default
-vim.keymap.set("n", "?", "?\\v", { noremap = true, silent = true })
+map("n", "?", "?\\v", { noremap = true, silent = true })
 
 -- Select all
 map({ "n", "v", "x" }, "<C-a>", "ggVG", { desc = "Select all.", noremap = true, silent = true })
@@ -153,10 +153,10 @@ end, { desc = "Strip trailing whitespace", noremap = true, silent = true })
 
 -- Show documentation
 -- Normal mode: keep the classic "K shows docs" (if you want)
-vim.keymap.set("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
+map("n", "K", vim.lsp.buf.hover, { desc = "LSP Hover" })
 -- Insert mode: <C-d> shows docs for whatever is under the cursor
-vim.keymap.set("i", "<C-d>", function()
+map("i", "<C-d>", function()
   vim.lsp.buf.hover()
 end, { desc = "LSP Hover (insert)" })
 -- Normal mode. Show docs.
-vim.keymap.set("n", "<C-d>", vim.lsp.buf.hover, { desc = "LSP Hover" })
+map("n", "<C-d>", vim.lsp.buf.hover, { desc = "LSP Hover" })
