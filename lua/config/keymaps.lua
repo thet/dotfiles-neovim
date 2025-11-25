@@ -16,7 +16,7 @@ vim.api.nvim_create_user_command("Wa", function()
   vim.cmd("wa")
 end, {})
 -- write as root - https://stackoverflow.com/a/58215799/1337474
-vim.api.nvim_create_user_command("W!!", function()
+vim.api.nvim_create_user_command("WF", function()
   vim.cmd("silent! write !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null")
   vim.cmd("edit!")
 end, {})
