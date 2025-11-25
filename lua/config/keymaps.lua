@@ -3,6 +3,21 @@
 -- Add any additional keymaps here
 local map = vim.keymap.set
 
+-- Savin'
+-- :W or :Wa should write/write all
+-- Create custom commands
+vim.api.nvim_create_user_command("W", function()
+  vim.cmd("w")
+end, {})
+vim.api.nvim_create_user_command("Wa", function()
+  vim.cmd("wa")
+end, {})
+-- write as root - https://stackoverflow.com/a/58215799/1337474
+vim.api.nvim_create_user_command("W!!", function()
+  vim.cmd("silent! write !SUDO_ASKPASS=`which ssh-askpass` sudo tee % >/dev/null")
+  vim.cmd("edit!")
+end, {})
+
 -- Searchin'
 -- Allow for searching multiple words at once - e.g. `/\vsite-(home|logo)` for site-home and site-logo
 -- Forward search, normal mode: Set search to very magic - makes regex searches the default
