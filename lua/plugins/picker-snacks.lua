@@ -1,3 +1,8 @@
+-- Disable snacks.picker in favor of telescope.
+if true then
+  return {}
+end
+
 -- https://github.com/folke/snacks.nvim
 -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
 -- https://github.com/folke/snacks.nvim/blob/main/docs/gh.md
