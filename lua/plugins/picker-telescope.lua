@@ -28,7 +28,17 @@ return {
           ignore_current_buffer = true,
         },
         find_files = {
-          find_command = { "fdfind", "--type", "f", "--strip-cwd-prefix" },
+          find_command = {
+            "fdfind",
+            "--type",
+            "f",
+            "--type",
+            "d",
+            "--follow",
+            "--hidden",
+            "--no-ignore",
+            "--strip-cwd-prefix",
+          },
         },
         live_grep = {
           additional_args = function()
