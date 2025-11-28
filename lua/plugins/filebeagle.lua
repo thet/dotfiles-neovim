@@ -9,6 +9,11 @@ vim.cmd([[
 
 return {
   "jeetsukumaran/vim-filebeagle",
+
+  -- Load after Neovim starts. Allows telescope to open a directory and
+  -- filebeagle handle it.
+  event = "VimEnter",
+
   keys = {
     {
       "_",
