@@ -171,3 +171,19 @@ map("i", "<C-d>", function()
 end, { desc = "LSP Hover (insert)" })
 -- Normal mode. Show docs.
 map("n", "<C-d>", vim.lsp.buf.hover, { desc = "LSP Hover" })
+
+-- LspLog: Extend with `clear` subcommand
+vim.api.nvim_create_user_command("LspLog", function(opts)
+  if opts.args == "clear" then
+    os.execute("rm ~/.local/state/nvim/lsp.log")
+    vim.notify("LSP log cleared", vim.log.levels.INFO)
+  else
+    vim.cmd("edit " .. vim.fn.stdpath("state") .. "/lsp.log")
+  end
+end, {
+  nargs = "?",
+  complete = function()
+    return { "clear" }
+  end,
+  desc = "Open LSP log or clear it with 'clear' argument",
+})
