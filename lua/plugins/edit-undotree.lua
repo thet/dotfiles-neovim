@@ -10,7 +10,7 @@ return {
       float_diff = true, -- using float window previews diff
     },
     keys = { -- load the plugin only when using it's keybinding:
-      { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>" },
+      { "<leader>u", "<cmd>lua require('undotree').toggle()<cr>", noremap = true },
     },
   },
 }
