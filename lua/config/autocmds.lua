@@ -9,10 +9,10 @@
 
 -- Force "indent" as foldmethod, even if TreeSitter or others have set it differently
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "typescriptreact", "json" },
+  pattern = { "javascript", "typescript", "typescriptreact", "json", "html", "xml" },
   callback = function()
     vim.opt_local.foldmethod = "indent"
     vim.opt_local.foldexpr = "0"
   end,
-  desc = "Force indent folding for JS/TS files",
+  desc = "Force indent folding for JS/TS/HTML/XML files",
 })
