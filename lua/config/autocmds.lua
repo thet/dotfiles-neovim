@@ -16,3 +16,18 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   desc = "Force indent folding for JS/TS/HTML/XML files",
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = "*.zcml",
+  callback = function()
+    vim.bo.filetype = "xml"
+  end,
+})
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = { "*.pt", "*.cpt", "*.zpt" },
+  callback = function()
+    vim.bo.filetype = "xhtml"
+    vim.cmd("syntax html")
+  end,
+})
