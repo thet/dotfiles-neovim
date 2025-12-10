@@ -1,5 +1,6 @@
 -- https://github.com/akinsho/bufferline.nvim
-
+-- Alternatives:
+--   https://github.com/pacha/vem-tabline
 return {
   {
     "akinsho/bufferline.nvim",
