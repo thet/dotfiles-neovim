@@ -1,8 +1,12 @@
--- https://vimawesome.com/plugin/vim-rfc
--- https://github.com/mhinz/vim-rfc
+-- https://github.com/moniquelive/rfc.nvim
 return {
   {
-    "mhinz/vim-rfc",
-    opts = {},
+    "moniquelive/rfc.nvim",
+    dependencies = {
+      "nvim-telescope/telescope.nvim",
+    },
+    config = function()
+      require("telescope").load_extension("rfc")
+    end,
   },
 }
