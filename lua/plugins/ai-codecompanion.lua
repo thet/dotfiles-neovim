@@ -11,6 +11,7 @@
 -- https://www.chrislockard.net/posts/lmstudio-neovim-codecompanion/
 
 -- https://blog.olimorris.com/
+-- https://www.reddit.com/r/neovim/comments/1n1txun/support_for_agent_client_protocol_in/
 
 -- https://github.com/ravitemer/mcphub.nvim
 -- https://ravitemer.github.io/mcphub.nvim/
