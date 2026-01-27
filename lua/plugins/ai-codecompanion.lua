@@ -368,9 +368,10 @@ When the user asks you to solve a problem, you must follow this exact interactio
           },
         },
         ["Chain-of-Thought"] = {
-          strategy = "workflow",
+          interaction = "chat",
           description = "Use a CoT workflow to plan and write code",
           opts = {
+            is_workflow = true,
             adapter = {
               name = "copilot",
               model = "claude-haiku-4.5",
@@ -448,9 +449,10 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
           },
         },
         ["Test workflow"] = {
-          strategy = "workflow",
+          interaction = "chat",
           description = "Use a workflow to test the plugin",
           opts = {
+            is_workflow = true,
             adapter = {
               name = "copilot",
               model = "gpt-4.1",
@@ -551,7 +553,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
           },
         },
       },
-      strategies = {
+      interactions = {
         chat = {
           adapter = {
             name = "copilot",
@@ -634,7 +636,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
           },
         },
       },
-      memory = {
+      rules = {
         opts = {
           chat = {
             enabled = true,
