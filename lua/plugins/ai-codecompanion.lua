@@ -241,7 +241,7 @@ return {
           opts = {
             adapter = {
               name = "copilot",
-              model = "claude-haiku-4.5",
+              model = "claude-opus-4.5",
             },
             index = 4,
             ignore_system_prompt = true,
@@ -279,7 +279,7 @@ Now read this text and produce that image prompt:
           opts = {
             adapter = {
               name = "copilot",
-              model = "gpt-4.1",
+              model = "claude-opus-4.5",
             },
             index = 4,
             ignore_system_prompt = true,
@@ -375,7 +375,7 @@ When the user asks you to solve a problem, you must follow this exact interactio
             is_workflow = true,
             adapter = {
               name = "copilot",
-              model = "claude-haiku-4.5",
+              model = "claude-opus-4.5",
             },
           },
           prompts = {
@@ -417,7 +417,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
                 opts = {
                   adapter = {
                     name = "copilot",
-                    model = "claude-sonnet-4.5",
+                    model = "claude-opus-4.5",
                   },
                   auto_submit = true,
                 },
@@ -441,7 +441,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
                 opts = {
                   adapter = {
                     name = "copilot",
-                    model = "claude-haiku-4.5",
+                    model = "claude-opus-4.5",
                   },
                   auto_submit = true,
                 },
@@ -456,7 +456,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
             is_workflow = true,
             adapter = {
               name = "copilot",
-              model = "gpt-4.1",
+              model = "claude-opus-4.5",
             },
             index = 4,
           },
@@ -558,7 +558,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
         chat = {
           adapter = {
             name = "copilot",
-            model = "claude-haiku-4.5",
+            model = "claude-opus-4.5",
           },
           roles = {
             user = "thet",
@@ -614,7 +614,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
         inline = {
           adapter = {
             name = "copilot",
-            model = "gpt-4.1",
+            model = "claude-opus-4.5",
           },
         },
       },
