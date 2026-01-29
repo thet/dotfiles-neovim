@@ -8,6 +8,7 @@ return {
       ensure_installed = {
         "copilot-language-server",
         "biome",
+        "prettier",
         "stylua",
         "shfmt",
         "tailwindcss-language-server",
