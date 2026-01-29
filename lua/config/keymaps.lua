@@ -51,6 +51,7 @@ map({ "n", "v", "x" }, "<Del>", '"_x', { desc = "<Del> into blackhole.", noremap
 -- Copy to system clipboard
 map('n', '1', '"+yy', { desc = "Copy line to system clipboard", noremap = true, silent = true })
 map('x', '1', '"+y',  { desc = "Copy selection to system clipboard", noremap = true, silent = true })
+map('n', '4', '0"+y$', { desc = "Copy line to system clipboard (no newline)", noremap = true, silent = true })
 --
 -- Paste BEFORE (like 'P')
 map('n', '2', '"+p',  { desc = "Paste from system clipboard (after cursor)", noremap = true, silent = true })
