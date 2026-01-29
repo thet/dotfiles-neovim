@@ -99,8 +99,8 @@ map("n", "<leader>e", ":edit %:h/", {
 map("n", "<C-S-Right>", "zo", { desc = "Open current fold", remap = true })
 map("n", "<C-S-Left>", "zc", { desc = "Close current fold", remap = true })
 -- Recursive open/close at cursor
-map("n", "<A-Right>", "zO", { desc = "Open all folds under cursor.", noremap = true, silent = true })
-map("n", "<A-Left>", "zC", { desc = "Close all folds under cursor.", noremap = true, silent = true })
+--map("n", "<A-Right>", "zO", { desc = "Open all folds under cursor.", noremap = true, silent = true })
+--map("n", "<A-Left>", "zC", { desc = "Close all folds under cursor.", noremap = true, silent = true })
 
 -- -----------------------
 -- Text formatting helpers
