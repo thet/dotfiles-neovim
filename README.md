@@ -11,6 +11,12 @@ Preconditions:
 npm install\
     markdownlint-cli2
     markdown-toc
+
+sudo apt install\
+    fdfind\
+    gh\
+    ripgrep
+
 ```
 
 ## cheatsheet
@@ -35,7 +41,22 @@ Check editorconfig status:
 
 ```vim
 :checkhealth
+:checkhealth lsp
+:checkhealth mason
 :LspInfo
+:LspLog
+```
+
+Install new plugin spec dependencies
+
+```vim
+Lazy sync
+```
+
+https://neovim.io/doc/user/terminal.html
+
+```vim
+:terminal
 ```
 
 ## documentation
@@ -55,7 +76,7 @@ https://neovim.io/doc/user/lua-guide.html
 
 ## References
 
-vim search multiple words at once
+vim search multiple words
 e.g. `/\vsite-(home|logo)` for site-home and site-logo
 https://gemini.google.com/app/4c8980443182ab26
 
