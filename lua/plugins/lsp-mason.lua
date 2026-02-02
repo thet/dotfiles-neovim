@@ -12,6 +12,7 @@ return {
         "stylua",
         "shfmt",
         "tailwindcss-language-server",
+        "ty",
       },
     },
   },
