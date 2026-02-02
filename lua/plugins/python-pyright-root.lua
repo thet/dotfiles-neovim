@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+-- Deactivated
 -- Force pyright to use the nvim start directory as root_dir
 return {
   "neovim/nvim-lspconfig",

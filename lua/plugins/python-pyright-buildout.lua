@@ -1,3 +1,7 @@
+if true then
+  return {}
+end
+-- Deactivated
 return {
   "neovim/nvim-lspconfig",
   init = function()
