@@ -15,8 +15,8 @@ return {
 
     -- Keymaps equivalent to your vimscript nmap lines
     keys = {
-      { "]c", "<Plug>(GitGutterNextHunk)", mode = "n", desc = "Next hunk (gitgutter)" },
-      { "[c", "<Plug>(GitGutterPrevHunk)", mode = "n", desc = "Prev hunk (gitgutter)" },
+      { "]z", "<Plug>(GitGutterNextHunk)", mode = "n", desc = "Next hunk (gitgutter)" },
+      { "[z", "<Plug>(GitGutterPrevHunk)", mode = "n", desc = "Prev hunk (gitgutter)" },
       { "<leader>hg", "<Plug>(GitGutterToggle)", mode = "n", desc = "Toggle GitGutter" },
       { "<leader>ha", "<Plug>(GitGutterStageHunk)", mode = "n", desc = "Stage hunk" },
       { "<leader>hu", "<Plug>(GitGutterUndoHunk)", mode = "n", desc = "Undo hunk" },
