@@ -16,4 +16,7 @@ return {
       },
     },
   },
+
+  -- Disable mason-lspconfig since we're not using nvim-lspconfig
+  { "mason-org/mason-lspconfig.nvim", enabled = false },
 }
