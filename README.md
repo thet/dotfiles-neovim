@@ -39,14 +39,6 @@ Check editorconfig status:
 :echo b:editorconfg
 ```
 
-```vim
-:checkhealth
-:checkhealth lsp
-:checkhealth mason
-:LspInfo
-:LspLog
-```
-
 Install new plugin spec dependencies
 
 ```vim
@@ -57,6 +49,43 @@ https://neovim.io/doc/user/terminal.html
 
 ```vim
 :terminal
+```
+
+## Debugging
+
+```vim
+:checkhealth
+:checkhealth lsp
+:checkhealth mason
+:LspInfo
+:LspLog
+```
+
+### Performance issues
+
+Debugging performance issues:
+
+```bash
+nvim --startuptime output.txt
+
+# https://neovim.io/doc/user/starting.html#-V
+nvim -V
+```
+
+#### Profiling
+
+https://www.reddit.com/r/neovim/comments/6j4wri/debugging_slowness/
+https://stackoverflow.com/questions/12213597/how-to-see-which-plugins-are-making-vim-slow
+
+You can use built-in profiling support: after launching vim do
+
+```vim
+:profile start profile.log
+:profile func *
+:profile file *
+" At this point do slow actions
+:profile pause
+:noautocmd qall!
 ```
 
 ## documentation
