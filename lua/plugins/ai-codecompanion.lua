@@ -49,6 +49,11 @@ local spinner = {
   cancelled = "󰜺 Cancelled",
 }
 
+local default_adapter = {
+  name = "copilot",
+  model = "claude-opus-4.5",
+}
+
 ---Format the adapter name and model for display with the spinner
 ---@param adapter CodeCompanion.Adapter
 ---@return string
@@ -214,10 +219,7 @@ return {
           strategy = "chat",
           description = "Create a prompt for generating blog images",
           opts = {
-            adapter = {
-              name = "copilot",
-              model = "claude-opus-4.5",
-            },
+            adapter = default_adapter,
             index = 4,
             ignore_system_prompt = true,
             intro_message = "Please share the blog post ",
@@ -252,10 +254,7 @@ Now read this text and produce that image prompt:
           strategy = "chat",
           description = "Chat with your personal maths tutor",
           opts = {
-            adapter = {
-              name = "copilot",
-              model = "claude-opus-4.5",
-            },
+            adapter = default_adapter,
             index = 4,
             ignore_system_prompt = true,
             intro_message = "Welcome to your lesson! How may I help you today? ",
@@ -294,10 +293,7 @@ When the user asks about a mathematical topic, follow this structure:
           strategy = "chat",
           description = "Chat with your personal tutor",
           opts = {
-            adapter = {
-              name = "anthropic",
-              model = "claude-haiku-4-5-20251001",
-            },
+            adapter = default_adapter,
             index = 4,
             ignore_system_prompt = true,
             intro_message = "Welcome to your lesson! How may I help you today? ",
@@ -348,10 +344,7 @@ When the user asks you to solve a problem, you must follow this exact interactio
           description = "Use a CoT workflow to plan and write code",
           opts = {
             is_workflow = true,
-            adapter = {
-              name = "copilot",
-              model = "claude-opus-4.5",
-            },
+            adapter = default_adapter,
           },
           prompts = {
             {
@@ -390,10 +383,7 @@ Critically evaluate the plan by answering the following questions:
 
 After your analysis, provide a final, revised pseudocode plan. This new plan should incorporate your improvements, be extremely detailed, and leave no room for ambiguity.]],
                 opts = {
-                  adapter = {
-                    name = "copilot",
-                    model = "claude-opus-4.5",
-                  },
+                  adapter = default_adapter,
                   auto_submit = true,
                 },
               },
@@ -414,10 +404,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
 - Follow the plan exactly.
 - Ensure comments are correct for the programming language.]],
                 opts = {
-                  adapter = {
-                    name = "copilot",
-                    model = "claude-opus-4.5",
-                  },
+                  adapter = default_adapter,
                   auto_submit = true,
                 },
               },
@@ -429,10 +416,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
           description = "Use a workflow to test the plugin",
           opts = {
             is_workflow = true,
-            adapter = {
-              name = "copilot",
-              model = "claude-opus-4.5",
-            },
+            adapter = default_adapter,
             index = 4,
           },
           prompts = {
@@ -531,10 +515,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
       },
       interactions = {
         chat = {
-          adapter = {
-            name = "copilot",
-            model = "claude-opus-4.5",
-          },
+          adapter = default_adapter,
           roles = {
             user = "thet",
           },
@@ -587,10 +568,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
           },
         },
         inline = {
-          adapter = {
-            name = "copilot",
-            model = "claude-opus-4.5",
-          },
+          adapter = default_adapter,
         },
       },
       display = {
