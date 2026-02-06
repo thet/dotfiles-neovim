@@ -10,6 +10,9 @@
 
 -- https://www.chrislockard.net/posts/lmstudio-neovim-codecompanion/
 
+-- ollama
+-- https://hrmj.hashnode.dev/a-basic-neovim-local-llm-setup
+
 -- https://blog.olimorris.com/
 -- https://www.reddit.com/r/neovim/comments/1n1txun/support_for_agent_client_protocol_in/
 
@@ -152,20 +155,6 @@ return {
               },
             })
           end,
-          novita = function()
-            return require("codecompanion.adapters").extend("novita", {
-              env = {
-                api_key = "cmd:op read op://personal/Novita_API/credential --no-newline",
-              },
-              schema = {
-                model = {
-                  default = function()
-                    return "qwen/qwen3-coder-480b-a35b-instruct"
-                  end,
-                },
-              },
-            })
-          end,
           ollama = function()
             return require("codecompanion.adapters").extend("ollama", {
               schema = {
@@ -189,20 +178,6 @@ return {
             return require("codecompanion.adapters").extend("openai_responses", {
               env = {
                 api_key = "cmd:op read op://personal/OpenAI_API/credential --no-newline",
-              },
-            })
-          end,
-          xai = function()
-            return require("codecompanion.adapters").extend("xai", {
-              env = {
-                api_key = "cmd:op read op://personal/xAI_API/credential --no-newline",
-              },
-            })
-          end,
-          tavily = function()
-            return require("codecompanion.adapters").extend("tavily", {
-              env = {
-                api_key = "cmd:op read op://personal/Tavily_API/credential --no-newline",
               },
             })
           end,
