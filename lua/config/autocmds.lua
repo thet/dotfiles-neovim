@@ -7,6 +7,27 @@
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
 
+-- Hybrid line numbers for focused windows in insert mode.
+-- https://jeffkreeftmeijer.com/vim-number/
+local augroup = vim.api.nvim_create_augroup("numbertoggle", { clear = true })
+vim.opt.number = true
+vim.api.nvim_create_autocmd({ "BufEnter", "FocusGained", "InsertLeave", "WinEnter" }, {
+  group = augroup,
+  callback = function()
+    if vim.wo.number and vim.fn.mode() ~= "i" then
+      vim.wo.relativenumber = true
+    end
+  end,
+})
+vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave" }, {
+  group = augroup,
+  callback = function()
+    if vim.wo.number then
+      vim.wo.relativenumber = false
+    end
+  end,
+})
+
 -- Force "indent" as foldmethod, even if TreeSitter or others have set it differently
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "javascript", "typescript", "typescriptreact", "json", "html", "xml" },
