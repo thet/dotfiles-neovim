@@ -51,6 +51,39 @@ https://neovim.io/doc/user/terminal.html
 :terminal
 ```
 
+Relative vs absolute line numbers:
+https://jeffkreeftmeijer.com/vim-number/
+
+```vim
+set relativenumber
+set rnu
+
+set norelativenumber
+set nornu
+
+set number
+set nu
+
+set nonumber
+set nonu
+
+set rnu nu   " Set hybridnumber
+set rnu! nu! " Toggle hybridnumber
+```
+
+Move a block
+https://neovim.io/doc/user/motion.html
+https://vim.fandom.com/wiki/Moving_lines_up_or_down
+
+```vim
+:m 12  " move current line to after line 12
+:m 0   " move current line to before first line
+:m $   " move current line to after last line
+
+:5,7m 21   " move lines 5, 6 and 7 to after line 21
+:,+4m 21 " move 5 lines starting at current line to after line 21
+```
+
 ## Debugging
 
 ```vim
