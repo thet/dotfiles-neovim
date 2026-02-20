@@ -36,7 +36,7 @@ return {
             "d",
             "--follow",
             "--hidden",
-            --"--no-ignore",
+            "--no-ignore",
             "--strip-cwd-prefix",
           },
         },
