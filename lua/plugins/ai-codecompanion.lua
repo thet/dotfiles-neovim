@@ -51,7 +51,8 @@ local spinner = {
 
 local default_adapter = {
   name = "copilot",
-  model = "claude-opus-4.6",
+  --model = "claude-opus-4.6",
+  model = "gpt-4.1",
 }
 
 ---Format the adapter name and model for display with the spinner
