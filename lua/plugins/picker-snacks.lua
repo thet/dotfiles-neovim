@@ -63,6 +63,8 @@ return {
       { "<leader>{", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
 
       -- git
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/gitbrowse.md
+      { "<leader>gb", function() Snacks.gitbrowse() end, desc = "Git browse current file." },
       { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (hunks)" },
       { "<leader>gD", function() Snacks.picker.git_diff({ base = "origin", group = true }) end, desc = "Git Diff (origin)" },
       { "<leader>gs", function() Snacks.picker.git_status() end, desc = "Git Status" },
