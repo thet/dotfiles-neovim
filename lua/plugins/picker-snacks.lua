@@ -53,10 +53,10 @@ return {
             hidden = true,
           })
         end,
-        desc = "Find Files relative"
+        desc = "Find files relative"
       },
-      { "<leader>/", function() Snacks.picker.files({ follow = true, ignored = true, hidden = true, }) end, desc = "Find Files (Root Dir)" },
-      { "<leader>?", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)" },
+      { "<leader>/", function() Snacks.picker.files({ follow = true, ignored = true, hidden = true, }) end, desc = "Find files (root)" },
+      { "<leader>?", function() Snacks.picker.git_files() end, desc = "Find files (git)" },
 
       -- explorer
       -- https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
@@ -67,14 +67,21 @@ return {
       { "<leader>t", function() Snacks.terminal.toggle() end, desc = "Toggle terminal." },
 
       -- Grep
-      { "<leader>\\", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
-      { "<leader>|", LazyVim.pick("grep_word"), desc = "Visual selection or word (Root Dir)", mode = { "n", "x" } },
-
-      { "<leader>]", LazyVim.pick("live_grep", { root = false }), desc = "Grep (cwd)" },
-      { "<leader>}", LazyVim.pick("grep_word", { root = false }), desc = "Visual selection or word (cwd)", mode = { "n", "x" } },
-
-      { "<leader>[", function() Snacks.picker.lines() end, desc = "Buffer Lines" },
-      { "<leader>{", function() Snacks.picker.grep_buffers() end, desc = "Grep Open Buffers" },
+      {
+        "<>",
+        function()
+          local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p:h")
+          Snacks.picker.grep({
+            dirs = { dir },
+            follow = true,
+            ignored = true,
+            hidden = true,
+          })
+        end,
+        desc = "Grep relative"
+      },
+      { "<?", function() Snacks.picker.grep({ follow = true, ignored = true, hidden = true, }) end, desc = "Grep root" },
+      { "<<", function() Snacks.picker.grep_buffers({ }) end, desc = "Grep buffers" },
 
       -- git
       -- https://github.com/folke/snacks.nvim/blob/main/docs/gitbrowse.md
