@@ -41,11 +41,10 @@ return {
     keys = {
       -- find files
       { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
-      { "<leader><", LazyVim.pick("oldfiles"), desc = "Recent" },
+      { "<leader><", function() Snacks.picker.recent() end, desc = "Recent files" },
 
       { "<leader>.", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
-
-      { "<leader>/", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
+      { "<leader>/", function() Snacks.picker.files({ follow = true, ignored = true, hidden = true, }) end, desc = "Find Files (Root Dir)" },
       { "<leader>?", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)" },
 
       -- explorer
