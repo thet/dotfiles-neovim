@@ -52,6 +52,10 @@ return {
       -- https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
       { "<leader>n", function() Snacks.explorer.open() end, desc = "Open file explorer" },
 
+      -- terminal
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/terminal.md
+      { "<leader>t", function() Snacks.terminal.toggle() end, desc = "Toggle terminal." },
+
       -- Grep
       { "<leader>\\", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
       { "<leader>|", LazyVim.pick("grep_word"), desc = "Visual selection or word (Root Dir)", mode = { "n", "x" } },
