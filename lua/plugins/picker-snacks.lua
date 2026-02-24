@@ -5,6 +5,7 @@
 
 -- https://github.com/folke/snacks.nvim
 -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
+-- https://github.com/folke/snacks.nvim/blob/main/lua/snacks/picker/source/files.lua
 -- https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
 -- https://github.com/folke/snacks.nvim/blob/main/docs/gh.md
 -- https://github.com/jhawthorn/fzy
@@ -39,9 +40,14 @@ return {
 
     -- stylua: ignore
     keys = {
+      -- explorer
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
+      { "<leader>n", function() Snacks.explorer.open() end, desc = "Open file explorer" },
+
       -- find files
-      { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
-      { "<leader><", function() Snacks.picker.recent() end, desc = "Recent files" },
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#buffers
+      { "<leader>,", function() Snacks.picker.buffers() end, desc = "Find buffers" },
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#files
       {
         "<leader>.",
         function()
@@ -53,20 +59,18 @@ return {
             hidden = true,
           })
         end,
-        desc = "Find files relative"
+        desc = "Find relative"
       },
-      { "<leader>/", function() Snacks.picker.files({ follow = true, ignored = true, hidden = true, }) end, desc = "Find files (root)" },
-      { "<leader>?", function() Snacks.picker.git_files() end, desc = "Find files (git)" },
-
-      -- explorer
-      -- https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
-      { "<leader>n", function() Snacks.explorer.open() end, desc = "Open file explorer" },
-
-      -- terminal
-      -- https://github.com/folke/snacks.nvim/blob/main/docs/terminal.md
-      { "<leader>t", function() Snacks.terminal.toggle() end, desc = "Toggle terminal." },
+      { "<leader>/", function() Snacks.picker.files({ follow = true, ignored = true, hidden = true, }) end, desc = "Find root" },
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#recent
+      { "<leader><", function() Snacks.picker.recent() end, desc = "Find recent" },
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#git_files
+      { "<leader>?", function() Snacks.picker.git_files() end, desc = "Find git" },
 
       -- Grep
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#grep_buffers
+      { "<<", function() Snacks.picker.grep_buffers({ }) end, desc = "Grep buffers" },
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#grep
       {
         "<>",
         function()
@@ -81,7 +85,10 @@ return {
         desc = "Grep relative"
       },
       { "<?", function() Snacks.picker.grep({ follow = true, ignored = true, hidden = true, }) end, desc = "Grep root" },
-      { "<<", function() Snacks.picker.grep_buffers({ }) end, desc = "Grep buffers" },
+
+      -- terminal
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/terminal.md
+      { "<leader>t", function() Snacks.terminal.toggle() end, desc = "Toggle terminal." },
 
       -- git
       -- https://github.com/folke/snacks.nvim/blob/main/docs/gitbrowse.md
