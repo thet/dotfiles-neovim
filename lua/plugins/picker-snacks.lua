@@ -42,8 +42,19 @@ return {
       -- find files
       { "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers" },
       { "<leader><", function() Snacks.picker.recent() end, desc = "Recent files" },
-
-      { "<leader>.", LazyVim.pick("files", { root = false }), desc = "Find Files (cwd)" },
+      {
+        "<leader>.",
+        function()
+          local dir = vim.fn.fnamemodify(vim.api.nvim_buf_get_name(0), ":p:h")
+          Snacks.picker.files({
+            dirs = { dir },
+            follow = true,
+            ignored = true,
+            hidden = true,
+          })
+        end,
+        desc = "Find Files relative"
+      },
       { "<leader>/", function() Snacks.picker.files({ follow = true, ignored = true, hidden = true, }) end, desc = "Find Files (Root Dir)" },
       { "<leader>?", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)" },
 
