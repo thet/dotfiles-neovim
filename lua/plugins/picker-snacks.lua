@@ -5,6 +5,7 @@
 
 -- https://github.com/folke/snacks.nvim
 -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md
+-- https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
 -- https://github.com/folke/snacks.nvim/blob/main/docs/gh.md
 -- https://github.com/jhawthorn/fzy
 -- https://github.com/sharkdp/fd
@@ -46,6 +47,10 @@ return {
 
       { "<leader>/", LazyVim.pick("files"), desc = "Find Files (Root Dir)" },
       { "<leader>?", function() Snacks.picker.git_files() end, desc = "Find Files (git-files)" },
+
+      -- explorer
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/explorer.md
+      { "<leader>n", function() Snacks.explorer.open() end, desc = "Open file explorer" },
 
       -- Grep
       { "<leader>\\", LazyVim.pick("live_grep"), desc = "Grep (Root Dir)" },
