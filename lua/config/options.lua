@@ -13,3 +13,6 @@ vim.g.lazyvim_picker = "snacks"
 
 -- Make sure autoread is set (should be the default)
 vim.o.autoread = true
+
+-- Disable animations
+vim.g.snacks_animate = false
