@@ -1,3 +1,8 @@
+-- Disable telescope in favor of snacks.picker.
+if true then
+  return {}
+end
+
 return {
   {
     -- https://github.com/nvim-telescope/telescope.nvim
