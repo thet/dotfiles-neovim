@@ -100,6 +100,9 @@ return {
       { "<leader>gI", function() Snacks.picker.gh_issue({ state = "all" }) end, desc = "GitHub Issues (all)" },
       { "<leader>gp", function() Snacks.picker.gh_pr() end, desc = "GitHub Pull Requests (open)" },
       { "<leader>gP", function() Snacks.picker.gh_pr({ state = "all" }) end, desc = "GitHub Pull Requests (all)" },
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/git.md
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/gh.md
+      -- https://github.com/folke/snacks.nvim/blob/main/docs/lazygit.md
 
       -- search
       { '<leader>ss"', function() Snacks.picker.registers() end, desc = "Registers" },
