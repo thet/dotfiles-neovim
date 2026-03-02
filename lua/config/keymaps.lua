@@ -188,3 +188,12 @@ end, {
   end,
   desc = "Open LSP log or clear it with 'clear' argument",
 })
+
+-- Toggle inlay hints
+map("n", "<leader>p", function()
+  if vim.lsp.inlay_hint.is_enabled() then
+    vim.lsp.inlay_hint.enable(false)
+  else
+    vim.lsp.inlay_hint.enable(true)
+  end
+end, { desc = "Toggle inlay hints" })
