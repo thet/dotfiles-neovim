@@ -208,8 +208,11 @@ return {
           end,
           claude_code = function()
             return require("codecompanion.adapters").extend("claude_code", {
-              env = {
-                CLAUDE_CODE_OAUTH_TOKEN = "cmd:op read op://personal/Claude_Code_OAuth/credential --no-newline",
+              env = {}, -- Not needed; auth via copilot-api proxy (~/.claude/settings.json)
+              handlers = {
+                auth = function(self)
+                  return true
+                end,
               },
             })
           end,
