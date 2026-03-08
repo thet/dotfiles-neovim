@@ -125,6 +125,7 @@ return {
       "ravitemer/codecompanion-history.nvim",
       "ravitemer/mcphub.nvim",
       "franco-ruggeri/codecompanion-spinner.nvim",
+      "j-hui/fidget.nvim",
     },
     opts = {
       adapters = {
@@ -694,5 +695,8 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
         spinner = {},
       },
     },
+    init = function()
+      require("plugins.codecompanion.fidget-spinner"):init()
+    end,
   },
 }
