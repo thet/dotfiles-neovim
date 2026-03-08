@@ -124,6 +124,7 @@ return {
       "nvim-treesitter/nvim-treesitter",
       "ravitemer/codecompanion-history.nvim",
       "ravitemer/mcphub.nvim",
+      "franco-ruggeri/codecompanion-spinner.nvim",
     },
     opts = {
       adapters = {
@@ -690,6 +691,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
             },
           },
         },
+        spinner = {},
       },
     },
   },
