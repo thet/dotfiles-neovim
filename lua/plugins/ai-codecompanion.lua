@@ -577,6 +577,17 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
           adapter = default_adapter,
         },
       },
+      keymaps = {
+        chat = {
+          -- Disable the default 'gx' mapping for clearing chat
+          -- We want to use 'gx' for opening URLs instead
+          clear = {
+            modes = {
+              n = "", -- Empty string disables the mapping
+            },
+          },
+        },
+      },
       display = {
         action_palette = {
           provider = "default",
