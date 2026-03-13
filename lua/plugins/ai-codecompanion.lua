@@ -633,7 +633,7 @@ After your analysis, provide a final, revised pseudocode plan. This new plan sho
             auto_generate_title = true,
             title_generation_opts = {
               ---Adapter for generating titles (defaults to current chat adapter)
-              adapter = nil, -- "copilot"
+              adapter = "copilot", -- nil, -- "copilot"
               ---Model for generating titles (defaults to current chat model)
               model = nil, -- "gpt-4o"
               ---Number of user prompts after which to refresh the title (0 to disable)
