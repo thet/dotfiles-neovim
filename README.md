@@ -15,8 +15,8 @@ npm install\
 sudo apt install\
     fdfind\
     gh\
-    ripgrep
-
+    ripgrep\
+    luarocks
 ```
 
 ## cheatsheet
