@@ -13,8 +13,8 @@ return {
   dependencies = { "nvim-lua/plenary.nvim" },
   submodules = false, -- not needed, submodules are required only for tests
   opts = {
-    open_browser_app = "default", -- specify your browser app; default for macOS is "open", Linux "xdg-open" and Windows "powershell.exe"
-    open_browser_args = { "--background" }, -- specify any arguments, such as --background for macOS' "open".
+    open_browser_app = "xdg-open", -- specify your browser app; default for macOS is "open", Linux "xdg-open" and Windows "powershell.exe"
+    --open_browser_args = { "--background" }, -- specify any arguments, such as --background for macOS' "open".
     handlers = {
       plugin = true, -- open plugin links in lua (e.g. packer, lazy, ..)
       github = true, -- open github issues
@@ -39,4 +39,3 @@ return {
     },
   },
 }
-
