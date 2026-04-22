@@ -1,3 +1,9 @@
+-- NOTE:
+-- Chats stored in:
+-- /home/thet/.local/share/nvim/codecompanion-history
+-- If you loose your current, thoughtfully crafted chat - e.g. by pressing
+-- <ctrl><c> - there you might have some luck.
+
 -- https://github.com/olimorris/codecompanion.nvim
 -- https://codecompanion.olimorris.dev/
 -- https://codecompanion.olimorris.dev/installation
@@ -51,8 +57,8 @@ local spinner = {
 
 local default_adapter = {
   name = "copilot",
-  --model = "claude-opus-4.6",
-  model = "gpt-4.1",
+  model = "claude-opus-4.7",
+  --model = "gpt-4.1",
 }
 
 ---Format the adapter name and model for display with the spinner
