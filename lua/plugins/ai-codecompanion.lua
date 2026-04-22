@@ -57,8 +57,13 @@ local spinner = {
 
 local default_adapter = {
   name = "copilot",
-  model = "claude-opus-4.7",
+  model = "claude-sonnet-4.6",
+  --model = "gpt-5.4",
+  --model = "gpt-5.3-codex",
   --model = "gpt-4.1",
+  --model = "claude-opus-4.7",
+  --model = "claude-opus-4.6",
+  --model = "claude-sonnet-4.6",
 }
 
 ---Format the adapter name and model for display with the spinner
@@ -134,6 +139,20 @@ return {
       "j-hui/fidget.nvim",
     },
     opts = {
+      adapters = {
+        acp = {
+          claude_code = function()
+            return require("codecompanion.adapters").extend("claude_code", {
+              env = {}, -- Not needed; auth via copilot-api proxy (~/.claude/settings.json)
+              handlers = {
+                auth = function()
+                  return true
+                end,
+              },
+            })
+          end,
+        },
+      },
       interactions = {
         chat = {
           adapter = default_adapter,
