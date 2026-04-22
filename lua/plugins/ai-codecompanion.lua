@@ -218,7 +218,7 @@ return {
             return require("codecompanion.adapters").extend("claude_code", {
               env = {}, -- Not needed; auth via copilot-api proxy (~/.claude/settings.json)
               handlers = {
-                auth = function(self)
+                auth = function()
                   return true
                 end,
               },
