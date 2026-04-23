@@ -40,7 +40,11 @@ return {
       -- default = { "lsp", "path", "snippets", "buffer" },
       sources = {
         default = {
+          "path",
           "copilot",
+          "lsp",
+          "snippets",
+          "buffer",
         },
         providers = {
           copilot = {
