@@ -19,6 +19,12 @@ sudo apt install\
     luarocks
 ```
 
+With this setup running, log in to Copilot via:
+
+```
+:Copilot auth
+```
+
 ## cheatsheet
 
 query the value for a setting:
