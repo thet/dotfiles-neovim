@@ -56,8 +56,10 @@ local spinner = {
 }
 
 local default_adapter = {
-  name = "copilot",
-  model = "claude-sonnet-4.6",
+  name = "codex",
+  model = "gpt-5.5",
+  --name = "copilot",
+  --model = "claude-sonnet-4.6",
   --model = "gpt-5.4",
   --model = "gpt-5.3-codex",
   --model = "gpt-4.1",
