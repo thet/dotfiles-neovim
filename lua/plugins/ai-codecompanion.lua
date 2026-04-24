@@ -141,9 +141,45 @@ return {
     opts = {
       adapters = {
         acp = {
+          -- Claude Code (Uses `claude` CLI and authenticates via `copilot-api`)
           claude_code = function()
             return require("codecompanion.adapters").extend("claude_code", {
               env = {}, -- Not needed; auth via copilot-api proxy (~/.claude/settings.json)
+              handlers = {
+                auth = function()
+                  return true
+                end,
+              },
+            })
+          end,
+          -- Codex with ACP support (Uses `codex-acp`)
+          codex = function()
+            return require("codecompanion.adapters").extend("codex", {
+              env = {
+                OPENAI_API_KEY = "OPENAI_API_KEY", -- References $OPENAI_API_KEY from environment
+              },
+              handlers = {
+                auth = function()
+                  return true
+                end,
+              },
+            })
+          end,
+          -- Copilot with ACP support (Uses `copilot --acp`)
+          copilot_acp = function()
+            return require("codecompanion.adapters").extend("copilot_acp", {
+              env = {},
+              handlers = {
+                auth = function()
+                  return true
+                end,
+              },
+            })
+          end,
+          -- Gemini CLI with ACP support (Uses `gemini --acp`)
+          gemini_cli = function()
+            return require("codecompanion.adapters").extend("gemini_cli", {
+              env = {},
               handlers = {
                 auth = function()
                   return true
