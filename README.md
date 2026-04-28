@@ -25,6 +25,15 @@ With this setup running, log in to Copilot via:
 :Copilot auth
 ```
 
+## Keymap cheatsheet
+
+NOTE: Keymaps can change. This info might not be accurate.
+
+```
+,< ... file history
+,> ... session history
+```
+
 ## cheatsheet
 
 query the value for a setting:
