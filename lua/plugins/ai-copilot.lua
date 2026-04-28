@@ -27,7 +27,7 @@ return {
       -- This can stay "enabled = true": if copilot_ls is not running,
       -- NES simply has nothing to talk to.
       nes = {
-        enabled = true,
+        enabled = false,
         auto_trigger = false,
       },
     },
