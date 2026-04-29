@@ -34,6 +34,38 @@ NOTE: Keymaps can change. This info might not be accurate.
 ,> ... session history
 ```
 
+## Codecompanion cheatsheet
+
+https://codecompanion.olimorris.dev/usage/chat-buffer/slash-commands#mcp
+https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#mcp
+
+ACP mode
+
+```
+:CodeCompanionChat adapter=codex
+```
+
+MCP chrome_devtools configured for codex.
+Example prompt:
+
+```
+Please connect to localhost:3000 via the provided chrome_devtools MCP server and tell me, if you can render the page.
+```
+
+General chat
+
+```
+:CodeCompanionChat adapter=copilot
+```
+
+Actions and tools:
+
+```
+/mcp -- start MCP servers
+@ -- Start tools menu. E.g.:
+@{mcp:chrome_devtools}
+```
+
 ## cheatsheet
 
 query the value for a setting:

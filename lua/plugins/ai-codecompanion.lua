@@ -12,6 +12,12 @@
 -- https://codecompanion.olimorris.dev/usage/chat-buffer/
 -- https://codecompanion.olimorris.dev/configuration/adapters
 
+-- https://codecompanion.olimorris.dev/usage/chat-buffer/slash-commands#mcp
+-- https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#mcp
+
+-- https://github.com/mozilla/firefox-devtools-mcp
+-- https://github.com/ChromeDevTools/chrome-devtools-mcp
+
 -- https://github.com/ravitemer/codecompanion-history.nvim
 
 -- https://www.chrislockard.net/posts/lmstudio-neovim-codecompanion/
