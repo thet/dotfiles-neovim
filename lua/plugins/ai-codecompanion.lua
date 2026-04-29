@@ -142,6 +142,20 @@ return {
     },
     opts = {
       adapters = {
+        http = {
+          openai = function()
+            return require("codecompanion.adapters").extend("openai", {
+              env = {
+                OPENAI_API_KEY = "OPENAI_API_KEY", -- References $OPENAI_API_KEY from environment
+              },
+              handlers = {
+                auth = function()
+                  return true
+                end,
+              },
+            })
+          end,
+        },
         acp = {
           -- Claude Code (Uses `claude` CLI and authenticates via `copilot-api`)
           claude_code = function()
