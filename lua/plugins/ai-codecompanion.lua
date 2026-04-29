@@ -172,7 +172,7 @@ return {
           codex = function()
             return require("codecompanion.adapters").extend("codex", {
               env = {
-                OPENAI_API_KEY = "OPENAI_API_KEY", -- References $OPENAI_API_KEY from environment
+                OPENAI_API_KEY = "CODEX_API_KEY", -- References $OPENAI_API_KEY from environment
                 -- Using Gnome Keyring secrets storage
                 --OPENAI_API_KEY = "cmd:secret-tool lookup service openai key api_key",
               },
