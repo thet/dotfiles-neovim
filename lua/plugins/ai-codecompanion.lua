@@ -193,6 +193,23 @@ return {
           end,
         },
       },
+
+      mcp = {
+        servers = {
+          firefox_devtools = {
+            cmd = { "npx", "-y", "firefox-devtools-mcp@latest" },
+          },
+          chrome_devtools = {
+            cmd = {
+              "npx",
+              "-y",
+              "chrome-devtools-mcp@latest",
+              "--executablePath=/usr/bin/chromium",
+            },
+          },
+        },
+      },
+
       interactions = {
         chat = {
           adapter = default_adapter,
