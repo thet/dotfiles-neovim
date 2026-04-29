@@ -181,6 +181,23 @@ return {
                   return true
                 end,
               },
+              defaults = {
+                --mcpServers = "inherit_from_config",
+                mcpServers = {
+                  {
+                    name = "chrome_devtools",
+                    command = "npx",
+                    args = {
+                      "-y",
+                      "chrome-devtools-mcp@latest",
+                      "--executablePath=/usr/bin/chromium",
+                      "--headless", -- Allow to run w/out X-Server
+                      "--isolated", -- Allow to run multiple browser instances
+                    },
+                    env = {},
+                  },
+                },
+              },
             })
           end,
           -- Copilot with ACP support (Uses `copilot --acp`)
@@ -221,6 +238,9 @@ return {
               "--executablePath=/usr/bin/chromium",
             },
           },
+        },
+        opts = {
+          acp_enabled = true, -- Enable MCP servers with ACP adapters
         },
       },
 
