@@ -30,12 +30,22 @@ vim.api.nvim_create_autocmd({ "BufLeave", "FocusLost", "InsertEnter", "WinLeave"
 
 -- Force "indent" as foldmethod, even if TreeSitter or others have set it differently
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "javascript", "typescript", "typescriptreact", "json", "html", "xml" },
+  pattern = { "javascript", "typescript", "typescriptreact", "json" },
   callback = function()
     vim.opt_local.foldmethod = "indent"
     vim.opt_local.foldexpr = "0"
   end,
-  desc = "Force indent folding for JS/TS/HTML/XML files",
+  desc = "Force indent folding for JS/TS/JSON files",
+})
+
+-- TreeSitter-based folding for HTML/XML/XHTML (handles tag structure regardless of indentation)
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "html", "xml", "xhtml" },
+  callback = function()
+    vim.opt_local.foldmethod = "expr"
+    vim.opt_local.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+  end,
+  desc = "TreeSitter folding for HTML/XML/XHTML files",
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
@@ -49,6 +59,8 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = { "*.pt", "*.cpt", "*.zpt" },
   callback = function()
     vim.bo.filetype = "xhtml"
-    vim.cmd("syntax html")
   end,
 })
+
+-- Use the html TreeSitter parser for xhtml (no separate xhtml parser exists)
+vim.treesitter.language.register("html", "xhtml")
