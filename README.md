@@ -19,6 +19,22 @@ sudo apt install\
     luarocks
 ```
 
+Node packages:
+
+```bash
+pnpm install \
+    "@agentclientprotocol/claude-agent-acp" \
+    "@anthropic-ai/claude-code" \
+    "@github/copilot" \
+    "@google/gemini-cli" \
+    "@openai/codex" \
+    "@zed-industries/codex-acp" \
+    "copilot-api"
+
+# Run post-install script for claude
+node run node_modules/@anthropic-ai/claude-code/install.cjs
+```
+
 With this setup running, log in to Copilot via:
 
 ```
@@ -29,9 +45,55 @@ With this setup running, log in to Copilot via:
 
 NOTE: Keymaps can change. This info might not be accurate.
 
+`:Lazy` - Open LazyVim page. Then press `U` to run upgrades
+`:Mason` - Open Mason dependency installer. Then run `U` for upgrades.
+
 ```
 ,< ... file history
 ,> ... session history
+```
+
+Tab pages
+https://neovim.io/doc/user/tabpage/#tabpage
+
+```
+:tabnew
+:tabclose
+
+:tabn
+:tabnext
+
+:tabp
+:tabprevious
+
+:tabm
+:+tabmove
+:tabmove +
+:tabmove -
+```
+
+### Sort blocks
+
+https://superuser.com/a/752821/404355
+
+```vim
+:g/BLOCK_START/,/BLOCK_END/s/\n/§
+:%sort
+%s/§/\r/g
+```
+
+```vim
+:g/<utility/,/\/>/s/\n/§
+:%sort
+%s/§/\r/g
+```
+
+### Search/Replace
+
+https://linuxize.com/post/vim-find-replace/
+
+```vim
+:%s/foo/bar/g
 ```
 
 ## Codecompanion cheatsheet
@@ -64,6 +126,8 @@ Actions and tools:
 /mcp -- start MCP servers
 @ -- Start tools menu. E.g.:
 @{mcp:chrome_devtools}
+
+/acp_session_options
 ```
 
 ## cheatsheet
