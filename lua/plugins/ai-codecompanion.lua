@@ -166,7 +166,7 @@ return {
           -- Claude Code (Uses `claude` CLI and authenticates via `copilot-api`)
           claude_code = function()
             return require("codecompanion.adapters").extend("claude_code", {
-              env = {}, -- Not needed; auth via copilot-api proxy (~/.claude/settings.json)
+              env = {}, -- Not needed; auth via claude or copilot-api proxy (~/.claude/settings.json)
               handlers = {
                 auth = function()
                   return true
