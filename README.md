@@ -53,7 +53,18 @@ NOTE: Keymaps can change. This info might not be accurate.
 ,> ... session history
 ```
 
-Tab pages
+### Diagnostic messages
+
+```
+[d ... previous message
+]d ... next message
+,cd ... Open floating window with full diagnostic message
+,xd ... Open diagnostics quickfix list
+,p ... Toggle inlay hints (custom binding)
+```
+
+### Tab pages
+
 https://neovim.io/doc/user/tabpage/#tabpage
 
 ```
@@ -233,6 +244,9 @@ You can use built-in profiling support: after launching vim do
 ```
 
 ## documentation
+
+diagnostics:
+https://neovim.io/doc/user/diagnostic/
 
 https://github.com/folke/lazy.nvim
 https://www.lazyvim.org/
