@@ -9,10 +9,16 @@ return {
     -- https://github.com/folke/tokyonight.nvim
     "folke/tokyonight.nvim",
     lazy = true,
-    opts = { style = "moon" },
-    config = function()
-      vim.opt.background = "dark"
-    end,
+    opts = {
+      style = "moon",
+      on_highlights = function(hl, c)
+        local util = require("tokyonight.util")
+        hl.DiagnosticVirtualTextError = { fg = util.darken(c.error,   0.75), bg = util.darken(c.error,   0.15), italic = true }
+        hl.DiagnosticVirtualTextWarn  = { fg = util.darken(c.warning, 0.75), bg = util.darken(c.warning, 0.15), italic = true }
+        hl.DiagnosticVirtualTextInfo  = { fg = util.darken(c.info,    0.75), bg = util.darken(c.info,    0.15), italic = true }
+        hl.DiagnosticVirtualTextHint  = { fg = util.darken(c.hint,    0.75), bg = util.darken(c.hint,    0.15), italic = true }
+      end,
+    },
   },
 
   -- Dracula
