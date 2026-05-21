@@ -6,8 +6,16 @@ return {
     priority = 1000,
     config = function()
       require("tiny-inline-diagnostic").setup()
-      vim.diagnostic.config({ virtual_text = false }) -- Disable Neovim's default virtual text diagnostics
+      vim.diagnostic.config({ virtual_text = false })
     end,
+  },
+  -- Override LazyVim's lspconfig diagnostic defaults so virtual_text stays off
+  -- even when lspconfig loads lazily after VeryLazy (e.g. on first BufReadPre).
+  {
+    "neovim/nvim-lspconfig",
+    opts = {
+      diagnostics = { virtual_text = false },
+    },
   },
 }
 
