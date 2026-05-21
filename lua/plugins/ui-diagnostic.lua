@@ -1,4 +1,5 @@
 -- https://github.com/rachartier/tiny-inline-diagnostic.nvim
+-- https://neovim.io/doc/user/diagnostic/
 return {
   {
     "rachartier/tiny-inline-diagnostic.nvim",
