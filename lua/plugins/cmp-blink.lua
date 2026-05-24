@@ -65,9 +65,13 @@ return {
         -- start from Blink's default mappings (C-y to accept, arrows to move, etc.)
         preset = "default",
 
-        -- -- Tab / S-Tab to move through the completion list
-        -- ["<Tab>"] = { "select_next", "fallback" },
-        -- ["<S-Tab>"] = { "select_prev", "fallback" },
+        -- Up/down nav
+        ["<Down>"] = { "fallback" }, -- disable
+        ["<Up>"] = { "fallback" }, -- disable
+        ["<C-Down>"] = { "select_next", "fallback" },
+        ["<C-Up>"] = { "select_prev", "fallback" },
+        ["<Tab>"] = { "select_next", "fallback" },
+        ["<S-Tab>"] = { "select_prev", "fallback" },
 
         -- Enter: accept if a completion is selected, otherwise behave like normal <CR>
         ["<CR>"] = { "accept", "fallback" },
