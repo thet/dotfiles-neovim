@@ -1,3 +1,8 @@
+-- Disable
+if true then
+  return {}
+end
+
 -- https://github.com/airblade/vim-gitgutter
 return {
   {

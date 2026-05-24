@@ -1,7 +1,6 @@
 -- https://github.com/lewis6991/gitsigns.nvim
 return {
   "lewis6991/gitsigns.nvim",
-  enabled = false,
   opts = {
     on_attach = function(bufnr)
       local gitsigns = require("gitsigns")
@@ -36,13 +35,13 @@ return {
       map("v", "<leader>ha", function()
         gitsigns.stage_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end)
-
       map("v", "<leader>hr", function()
         gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
       end)
 
       map("n", "<leader>hA", gitsigns.stage_buffer)
       map("n", "<leader>hR", gitsigns.reset_buffer)
+
       map("n", "<leader>hp", gitsigns.preview_hunk)
       map("n", "<leader>hi", gitsigns.preview_hunk_inline)
 
