@@ -69,8 +69,12 @@ return {
 
       -- Grep
       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#grep_buffers
-      { "<<", function() Snacks.picker.grep_buffers({ }) end, desc = "Grep buffers" },
       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#grep
+      --
+      -- grep buffers
+      { "<<", function() Snacks.picker.grep_buffers({ }) end, desc = "Grep buffers" },
+      --
+      -- grep relative
       {
         "<>",
         function()
@@ -84,6 +88,8 @@ return {
         end,
         desc = "Grep relative"
       },
+      --
+      -- grep root
       { "<?", function() Snacks.picker.grep({ follow = true, ignored = true, hidden = true, }) end, desc = "Grep root" },
 
       -- terminal
