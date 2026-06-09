@@ -10,6 +10,10 @@
 -- Switch the active model at runtime with  :MinuetModel  (or  ,am ).
 -- 1.5b = fastest/snappiest ghost text, 7b = smartest but laggier on the 780M iGPU.
 
+if true then
+  return {}
+end
+
 local utils = require("utils")
 
 -- The three models we want to flip between.
