@@ -91,6 +91,12 @@ return {
       opts.sources.default = opts.sources.default or {}
       opts.sources.providers = opts.sources.providers or {}
 
+      opts.appearance = {
+        kind_icons = {
+          Ollama = "󰊠", -- or any glyph you like
+        },
+      }
+
       -- Show minuet alongside copilot. Remove "copilot" from the default list
       -- in cmp-blink.lua if you want minuet to be the only AI source.
       table.insert(opts.sources.default, 1, "minuet")
