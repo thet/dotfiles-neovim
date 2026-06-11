@@ -161,6 +161,35 @@ return {
               },
             })
           end,
+          -- Local Codestral 22B via Ollama (http://localhost:11434).
+          --   ollama pull codestral:22b
+          --   :CodeCompanionChat adapter=codestral
+          -- Heavy on a shared-memory iGPU: expect a few tokens/sec. Fine for
+          -- chat where you wait; do NOT use it for inline completion.
+          codestral = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              name = "codestral",
+              schema = {
+                model = { default = "codestral:22b" },
+                -- Keep context modest on the 780M (shared RAM bandwidth).
+                -- Codestral supports up to 32k; raise if you have headroom.
+                num_ctx = { default = 8192 },
+              },
+            })
+          end,
+          -- Local Gemma 12B via Ollama (http://localhost:11434).
+          --   ollama pull gemma4:12b
+          --   :CodeCompanionChat adapter=gemma4
+          -- Same iGPU caveats as codestral: chat-only, not inline completion.
+          gemma4 = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              name = "gemma4",
+              schema = {
+                model = { default = "gemma4:12b" },
+                num_ctx = { default = 8192 },
+              },
+            })
+          end,
         },
         acp = {
           -- Claude Code (Uses `claude` CLI and authenticates via `copilot-api`)
