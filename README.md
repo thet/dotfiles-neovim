@@ -107,28 +107,50 @@ https://linuxize.com/post/vim-find-replace/
 :%s/foo/bar/g
 ```
 
-## Codecompanion cheatsheet
+## CodeCompanion cheatsheet
 
 https://codecompanion.olimorris.dev/usage/chat-buffer/slash-commands#mcp
 https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#mcp
 
-ACP mode
+General chat
+
+```
+:CodeCompanionChat adapter=copilot
+```
+
+```
+<CR>, <C-s> ... Send prompt in normal mode
+<C-CR> ... Send prompt in insert mode
+gm ... send a "btw" message while tool execution
+ga ... Switch adapter mid-session
+# ... invoke variable completion menu
+@ ... invoke tool completion menu
+\ ... ACP tool native command completion menu
+/acp_session_options
+```
+
+History. Normal mode / insert mode.
+
+```
+gh ... history
+r / <M-r> ... rename
+d / <M-d> ... delete
+<C-y> / <C-y> ... duplicate
+```
+
+### ACP mode
 
 ```
 :CodeCompanionChat adapter=codex
 ```
+
+### MCP
 
 MCP chrome_devtools configured for codex.
 Example prompt:
 
 ```
 Please connect to localhost:3000 via the provided chrome_devtools MCP server and tell me, if you can render the page.
-```
-
-General chat
-
-```
-:CodeCompanionChat adapter=copilot
 ```
 
 Actions and tools:
@@ -138,7 +160,6 @@ Actions and tools:
 @ -- Start tools menu. E.g.:
 @{mcp:chrome_devtools}
 
-/acp_session_options
 ```
 
 ## cheatsheet
