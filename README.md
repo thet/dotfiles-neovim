@@ -111,6 +111,7 @@ https://linuxize.com/post/vim-find-replace/
 
 https://codecompanion.olimorris.dev/usage/chat-buffer/slash-commands#mcp
 https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#mcp
+https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps
 
 General chat
 
@@ -121,6 +122,10 @@ General chat
 ```
 <CR>, <C-s> ... Send prompt in normal mode
 <C-CR> ... Send prompt in insert mode
+
+} ... next chat
+{ ... prev chat
+
 gm ... send a "btw" message while tool execution
 ga ... Switch adapter mid-session
 # ... invoke variable completion menu
