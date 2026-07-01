@@ -65,13 +65,13 @@ local default_adapter = {
   name = "codex",
   model = "gpt-5.5",
   --name = "copilot",
-  --model = "claude-sonnet-4.6",
   --model = "gpt-5.4",
   --model = "gpt-5.3-codex",
   --model = "gpt-4.1",
   --model = "claude-opus-4.7",
   --model = "claude-opus-4.6",
   --model = "claude-sonnet-4.6",
+  --model = "claude-sonnet-5",
 }
 
 ---Format the adapter name and model for display with the spinner
@@ -385,11 +385,12 @@ return {
             ---Automatically generate titles for new chats
             auto_generate_title = true,
             title_generation_opts = {
-              ---Adapter for generating titles (defaults to current chat adapter)
-              --adapter = "copilot", -- nil, -- "copilot"
-              ---Model for generating titles (defaults to current chat model)
-              --model = nil, -- "gpt-4o"
-              ---Number of user prompts after which to refresh the title (0 to disable)
+              -- NOTE: Only use non-ACP, REST API based chat adapters!
+              adapter = "copilot",
+              model = "gpt-4o-mini", -- pin model; default "gpt-5.4-mini" is unsupported
+              --adapter = "openai",
+              --adapter = "codestral",
+              --adapter = "gemma4",
               refresh_every_n_prompts = 0, -- e.g., 3 to refresh after every 3rd user prompt
               ---Maximum number of times to refresh the title (default: 3)
               max_refreshes = 3,
