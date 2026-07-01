@@ -2,6 +2,10 @@ return {
   -- https://github.com/mason-org/mason.nvim
   -- https://github.com/mason-org/mason-registry
   -- https://mason-registry.dev/registry/list?search=copilot
+  --
+  -- Robot Framework
+  -- https://github.com/robocorp/robotframework-lsp
+  -- https://github.com/robocorp/robotframework-lsp/tree/master/robotframework-ls
   {
     "mason-org/mason.nvim",
     opts = {
@@ -20,6 +24,7 @@ return {
         "gopls", -- Go
         "bash-language-server", -- Bash
         "sqlls", -- SQL
+        "robotframework-lsp",
 
         -- Additional useful language servers
         "json-lsp", -- JSON
