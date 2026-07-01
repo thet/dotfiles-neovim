@@ -107,11 +107,34 @@ https://linuxize.com/post/vim-find-replace/
 :%s/foo/bar/g
 ```
 
+### GV
+
+`:GV` - to open commit browser
+`:GV!` - will only list commits that affected the current file
+`:GV?` - fills the location list with the revisions of the current file
+
+`:GV` or `:GV?` can be used in visual mode to track the changes in the selected lines.
+Mappings
+
+`o` or `<cr>` on a commit to display the content of it
+`o` or `<cr>` on commits to display the diff in the range
+`O` opens a new tab instead
+`gb` for `:GBrowse`
+`]]` and `[[` to move between commits
+`.` to start command-line with `:Git [CURSOR] SHA` à la fugitive
+`q` or `gq` to close
+
 ## CodeCompanion cheatsheet
 
 https://codecompanion.olimorris.dev/usage/chat-buffer/slash-commands#mcp
 https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#mcp
 https://codecompanion.olimorris.dev/usage/chat-buffer/#keymaps
+
+If you want to use local LLMs provided by ollama, start ollama first!
+
+```
+ollama
+```
 
 General chat
 
