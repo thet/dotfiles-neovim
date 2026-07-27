@@ -312,6 +312,36 @@ https://neovim.io/doc/user/lua-guide.html
 
 ## References
 
+https://github.com/rockerBOO/awesome-neovim
+
+### AI code completion
+
+https://www.reddit.com/r/neovim/comments/1hjhdnb/alternative_to_github_copilot_plugin/
+
+https://supermaven.com/
+https://github.com/supermaven-inc/supermaven-nvim
+
+https://github.com/Exafunction/windsurf.vim
+https://dev.to/jonatas-sas/inline-ai-suggestions-in-neovim-github-copilot-vs-windsurf-codeium-a-technical-comparative-4b7l
+
+https://github.com/milanglacier/minuet-ai.nvim#providers
+https://github.com/monkoose/neocodeium
+
+https://github.com/zbirenbaum/copilot.lua
+
+https://github.com/GeorgesAlkhouri/nvim-aider
+https://aider.chat/docs/install/optional.html
+
+### More AI
+
+https://github.com/ColinKennedy/neovim-ai-plugins
+
+https://codecompanion.olimorris.dev/usage/inline
+https://github.com/yetone/avante.nvim
+https://github.com/greggh/claude-code.nvim
+
+### Other
+
 vim search multiple words
 e.g. `/\vsite-(home|logo)` for site-home and site-logo
 https://gemini.google.com/app/4c8980443182ab26
@@ -365,3 +395,8 @@ https://github.com/j-hui/fidget.nvim
 
 https://github.com/chrisjsewell/rst-language-server
 https://pypi.org/project/rst-language-server/
+
+### NeoVim distributions
+
+https://www.lazyvim.org/
+https://astronvim.com/
