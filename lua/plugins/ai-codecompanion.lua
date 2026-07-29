@@ -341,26 +341,26 @@ return {
         inline = {
           adapter = default_adapter,
         },
-        background = {
-          chat = {
-            callbacks = {
-              ["on_ready"] = {
-                actions = {
-                  {
-                    path = "interactions.background.builtin.chat_make_title",
-                    adapter = { name = "copilot" },
-                  },
-                },
-                -- Enable "on_ready" callback which contains the title generation action
-                enabled = true,
-              },
-            },
-            opts = {
-              -- Enable background interactions generally
-              enabled = true,
-            },
-          },
-        },
+        --background = {
+        --  chat = {
+        --    callbacks = {
+        --      ["on_ready"] = {
+        --        actions = {
+        --          {
+        --            path = "interactions.background.builtin.chat_make_title",
+        --            adapter = { name = "copilot" },
+        --          },
+        --        },
+        --        -- Enable "on_ready" callback which contains the title generation action
+        --        enabled = true,
+        --      },
+        --    },
+        --    opts = {
+        --      -- Enable background interactions generally
+        --      enabled = true,
+        --    },
+        --  },
+        --},
       },
       keymaps = {
         chat = {
@@ -389,8 +389,6 @@ return {
         history = {
           enabled = true,
           opts = {
-            -- Use CodeCompanion's built-in title generation:
-            auto_generate_title = false,
             -- Keymap to open history from chat buffer (default: gh)
             keymap = "gh",
             -- Keymap to save the current chat manually (when auto_save is disabled)
@@ -409,6 +407,26 @@ return {
               delete = { n = "d", i = "<M-d>" },
               duplicate = { n = "<C-y>", i = "<C-y>" },
             },
+
+            ---Automatically generate titles for new chats
+            auto_generate_title = true,
+            title_generation_opts = {
+              -- NOTE: Only use non-ACP, REST API based chat adapters!
+              adapter = "codestral",
+              --adapter = "gemma4",
+              --adapter = "copilot",
+              --model = "gpt-4o-mini", -- pin model; default "gpt-5.4-mini" is unsupported
+              --adapter = "openai",
+              refresh_every_n_prompts = 0, -- e.g., 3 to refresh after every 3rd user prompt
+              ---Maximum number of times to refresh the title (default: 3)
+              max_refreshes = 3,
+              format_title = function(original_title)
+                -- this can be a custom function that applies some custom
+                -- formatting to the title.
+                return original_title
+              end,
+            },
+
             ---On exiting and entering neovim, loads the last chat on opening chat
             continue_last_chat = false,
             ---When chat is cleared with `gx` delete the chat from history
