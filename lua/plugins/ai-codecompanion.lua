@@ -63,10 +63,11 @@ local spinner = {
 
 local default_adapter = {
   name = "codex",
-  model = "gpt-5.5",
+  model = "gpt-5.6-luna",
   --model = "gpt-5.6-sol",
   --model = "gpt-5.6-terra",
   --model = "gpt-5.6-luna",
+  --model = "gpt-5.5",
   --name = "copilot",
   --model = "gpt-5.4",
   --model = "gpt-5.3-codex",
