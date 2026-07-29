@@ -41,6 +41,21 @@ With this setup running, log in to Copilot via:
 :Copilot auth
 ```
 
+Maybe necessary:
+
+```bash
+claude auth login
+
+copilot auth
+
+copilot-api auth
+copilot-api start
+
+ollama
+ollama run codestral:22b
+ollama run gemmat:12b
+```
+
 ## Keymap cheatsheet
 
 NOTE: Keymaps can change. This info might not be accurate.
