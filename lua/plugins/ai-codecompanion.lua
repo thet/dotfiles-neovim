@@ -197,16 +197,15 @@ return {
           end,
         },
         acp = {
-          -- Claude Code (Uses `claude` CLI and authenticates via `copilot-api`)
+          -- Claude Code (Uses `claude` CLI)
           claude_code = function()
-            return require("codecompanion.adapters").extend("claude_code", {
-              env = {}, -- Not needed; auth via claude or copilot-api proxy (~/.claude/settings.json)
-              handlers = {
-                auth = function()
-                  return true
-                end,
-              },
-            })
+            local adapter = require("codecompanion.adapters").extend("claude_code")
+
+            -- Use Claude Code's normal ~/.claude/.credentials.json login.
+            -- Assign after extend(), because env = {} inside extend() is deep-merged.
+            adapter.env = {}
+
+            return adapter
           end,
           -- Codex with ACP support (Uses `codex-acp`)
           codex = function()
