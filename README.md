@@ -139,6 +139,15 @@ Mappings
 `.` to start command-line with `:Git [CURSOR] SHA` à la fugitive
 `q` or `gq` to close
 
+### filebeagle
+
+`gh` - Show hidden files
+
+### NeoTree
+
+`H` - Show hidden files.
+`?` - Keymap
+
 ## CodeCompanion cheatsheet
 
 https://codecompanion.olimorris.dev/usage/chat-buffer/slash-commands#mcp
