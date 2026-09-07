@@ -230,8 +230,6 @@ return {
                       "-y",
                       "chrome-devtools-mcp@latest",
                       "--executablePath=/usr/bin/chromium",
-                      "--headless", -- Allow to run w/out X-Server
-                      "--isolated", -- Allow to run multiple browser instances
                     },
                     env = {},
                   },
