@@ -1,5 +1,15 @@
 -- https://github.com/jeetsukumaran/vim-filebeagle
 
+-- Default keys:
+-- q .. quit
+-- - .. up a directory
+-- ~ .. go to home
+-- <BS> .. back to previous
+-- gh .. Toggle showing hidden/ignored files.
+-- R .. Refresh
+-- f .. regex filter
+-- F .. toggle regex filter
+
 -- Disable netrw. We use vim-filebeagle instead.
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
