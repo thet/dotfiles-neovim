@@ -224,6 +224,15 @@ return {
                 --mcpServers = "inherit_from_config",
                 mcpServers = {
                   {
+                    name = "firefox_devtools",
+                    command = "npx",
+                    args = {
+                      "-y",
+                      "@mozilla/firefox-devtools-mcp@latest",
+                    },
+                    env = {},
+                  },
+                  {
                     name = "chrome_devtools",
                     command = "npx",
                     args = {
@@ -265,7 +274,7 @@ return {
       mcp = {
         servers = {
           firefox_devtools = {
-            cmd = { "npx", "-y", "firefox-devtools-mcp@latest" },
+            cmd = { "npx", "-y", "@mozilla/firefox-devtools-mcp@latest" },
           },
           chrome_devtools = {
             cmd = {
