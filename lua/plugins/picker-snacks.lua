@@ -36,6 +36,17 @@ return {
           end,
         },
       },
+
+      -- also define an alernative startup logo
+      dashboard = {
+        preset = {
+          header = [[
+
+🕊
+
+          ]],
+        },
+      },
     },
 
     -- stylua: ignore
