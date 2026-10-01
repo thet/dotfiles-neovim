@@ -63,7 +63,9 @@ local spinner = {
 
 local default_adapter = {
   name = "codex",
-  model = "gpt-5.6-luna",
+  model = "gpt-6-astra",
+  --model = "gpt-5.6-luna",
+  --model = "gpt-6-astra",
   --model = "gpt-5.6-sol",
   --model = "gpt-5.6-terra",
   --model = "gpt-5.6-luna",
@@ -77,6 +79,8 @@ local default_adapter = {
   --model = "claude-opus-4.6",
   --model = "claude-sonnet-4.6",
   --model = "claude-sonnet-5",
+  --model = "claude-opus-5",
+  --model = "claude-fable-5",
 }
 
 ---Format the adapter name and model for display with the spinner
