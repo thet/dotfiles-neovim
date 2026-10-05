@@ -15,9 +15,6 @@
 -- https://codecompanion.olimorris.dev/usage/chat-buffer/slash-commands#mcp
 -- https://codecompanion.olimorris.dev/usage/chat-buffer/agents-tools#mcp
 
--- https://github.com/mozilla/firefox-devtools-mcp
--- https://github.com/ChromeDevTools/chrome-devtools-mcp
-
 -- https://github.com/ravitemer/codecompanion-history.nvim
 
 -- https://www.chrislockard.net/posts/lmstudio-neovim-codecompanion/
@@ -27,12 +24,6 @@
 
 -- https://blog.olimorris.com/
 -- https://www.reddit.com/r/neovim/comments/1n1txun/support_for_agent_client_protocol_in/
-
--- https://github.com/ravitemer/mcphub.nvim
--- https://ravitemer.github.io/mcphub.nvim/
--- An MCP client for Neovim that seamlessly integrates MCP servers into your
--- editing workflow with an intuitive interface for managing, testing, and
--- using MCP servers with your favorite chat plugins.
 
 -- https://github.com/hakonharnes/img-clip.nvim
 -- Embed images into any markup language, like LaTeX, Markdown or Typst
@@ -203,8 +194,11 @@ return {
         acp = {
           -- Claude Code (Uses `claude` CLI)
           claude_code = function()
-            local adapter = require("codecompanion.adapters").extend("claude_code")
-
+            local adapter = require("codecompanion.adapters").extend("claude_code", {
+              defaults = {
+                mcpServers = require("config.mcp").acp_servers(),
+              },
+            })
             -- Use Claude Code's normal ~/.claude/.credentials.json login.
             -- Assign after extend(), because env = {} inside extend() is deep-merged.
             adapter.env = {}
@@ -225,34 +219,16 @@ return {
                 end,
               },
               defaults = {
-                --mcpServers = "inherit_from_config",
-                mcpServers = {
-                  {
-                    name = "firefox_devtools",
-                    command = "npx",
-                    args = {
-                      "-y",
-                      "@mozilla/firefox-devtools-mcp@latest",
-                    },
-                    env = {},
-                  },
-                  {
-                    name = "chrome_devtools",
-                    command = "npx",
-                    args = {
-                      "-y",
-                      "chrome-devtools-mcp@latest",
-                      "--executablePath=/usr/bin/chromium",
-                    },
-                    env = {},
-                  },
-                },
+                mcpServers = require("config.mcp").acp_servers(),
               },
             })
           end,
           -- Copilot with ACP support (Uses `copilot --acp`)
           copilot_acp = function()
             return require("codecompanion.adapters").extend("copilot_acp", {
+              defaults = {
+                mcpServers = require("config.mcp").acp_servers(),
+              },
               env = {},
               handlers = {
                 auth = function()
@@ -264,6 +240,9 @@ return {
           -- Gemini CLI with ACP support (Uses `gemini --acp`)
           gemini_cli = function()
             return require("codecompanion.adapters").extend("gemini_cli", {
+              defaults = {
+                mcpServers = require("config.mcp").acp_servers(),
+              },
               env = {},
               handlers = {
                 auth = function()
@@ -272,27 +251,6 @@ return {
               },
             })
           end,
-        },
-      },
-
-      mcp = {
-        servers = {
-          firefox_devtools = {
-            cmd = { "npx", "-y", "@mozilla/firefox-devtools-mcp@latest" },
-          },
-          chrome_devtools = {
-            cmd = {
-              "npx",
-              "-y",
-              "chrome-devtools-mcp@latest",
-              "--executablePath=/usr/bin/chromium",
-              "--headless", -- Allow to run w/out X-Server
-              "--isolated", -- Allow to run multiple browser instances
-            },
-          },
-        },
-        opts = {
-          acp_enabled = true, -- Enable MCP servers with ACP adapters
         },
       },
 
@@ -483,6 +441,22 @@ return {
               -- (requires VectorCode 0.6.12+ for efficient incremental indexing)
               index_on_startup = false,
             },
+          },
+        },
+        mcphub = {
+          callback = "mcphub.extensions.codecompanion",
+          opts = {
+            -- MCP Tools
+            make_tools = true, -- Make individual tools (@server__tool) and server groups (@server) from MCP servers
+            show_server_tools_in_chat = true, -- Show individual tools in chat completion (when make_tools=true)
+            add_mcp_prefix_to_tool_names = false, -- Add mcp__ prefix (e.g `@mcp__github`, `@mcp__neovim__list_issues`)
+            show_result_in_chat = true, -- Show tool results directly in chat buffer
+            format_tool = nil, -- function(tool_name:string, tool: CodeCompanion.Agent.Tool) : string Function to format tool names to show in the chat buffer
+            -- MCP Resources
+            -- MCP Hub still uses the removed chat.variables API (upstream #278).
+            make_vars = false,
+            -- MCP Prompts
+            make_slash_commands = true, -- Add MCP prompts as /slash commands
           },
         },
         spinner = {},
