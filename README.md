@@ -198,6 +198,12 @@ d / <M-d> ... delete
 
 ### MCP
 
+Start:
+
+```
+:MCPHub
+```
+
 MCP chrome_devtools configured for codex.
 Example prompt:
 
