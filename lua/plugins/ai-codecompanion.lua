@@ -161,6 +161,22 @@ return {
               },
             })
           end,
+          -- adapter for title generation
+          titles = function()
+            return require("codecompanion.adapters").extend("ollama", {
+              name = "titles",
+              schema = {
+                model = { default = "ministral-3:3b" },
+                num_ctx = { default = 2048 },
+                keep_alive = { default = "0s" },
+              },
+              parameters = {
+                options = {
+                  num_predict = 32,
+                },
+              },
+            })
+          end,
           -- Local Codestral 22B via Ollama (http://localhost:11434).
           --   ollama pull codestral:22b
           --   :CodeCompanionChat adapter=codestral
@@ -382,7 +398,9 @@ return {
             auto_generate_title = true,
             title_generation_opts = {
               -- NOTE: Only use non-ACP, REST API based chat adapters!
-              adapter = "codestral",
+              adapter = "titles",
+              model = "ministral-3:3b",
+              --adapter = "codestral",
               --adapter = "gemma4",
               --adapter = "copilot",
               --model = "gpt-4o-mini", -- pin model; default "gpt-5.4-mini" is unsupported
