@@ -374,6 +374,10 @@ return {
       extensions = {
         history = {
           enabled = true,
+          callback = function()
+            require("config.codecompanion_history").setup()
+            return require("codecompanion._extensions.history")
+          end,
           opts = {
             -- Keymap to open history from chat buffer (default: gh)
             keymap = "gh",
