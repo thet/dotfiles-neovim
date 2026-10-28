@@ -6,6 +6,8 @@ return {
   -- Robot Framework
   -- https://github.com/robocorp/robotframework-lsp
   -- https://github.com/robocorp/robotframework-lsp/tree/master/robotframework-ls
+  --
+  -- https://github.com/DavidAnson/markdownlint-cli2
   {
     "mason-org/mason.nvim",
     opts = {
@@ -38,6 +40,7 @@ return {
         "stylua", -- Lua formatter
         "shfmt", -- Shell script formatter
         "eslint_d", -- JavaScript/TypeScript linter
+        "stylelint", -- CSS/SCSS diagnostics and automatic fixes
         "shellcheck", -- Shell script linter
         "sqlfluff", -- SQL linter/formatter
         "ruff", -- Python formatter and linter
@@ -45,6 +48,10 @@ return {
         "gofumpt", -- Go formatter
         "golines", -- Go line length formatter
         "goimports", -- Go import organizer
+        "black", -- Python formatter
+        "isort", -- Python import sorter
+        "editorconfig-checker", -- .editorconfig linter
+        "markdownlint", -- markdown
       },
     },
   },
