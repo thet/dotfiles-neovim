@@ -34,6 +34,20 @@ return {
     },
     opts = {
       formatters = {
+        zpretty = {
+          command = "zpretty",
+          -- Format buffer contents via stdin; -i is only for on-disk files.
+          stdin = true,
+          args = function(_, ctx)
+            -- ZCML buffers use the xml filetype, but need their own style.
+            if vim.fn.fnamemodify(ctx.filename, ":e") == "zcml" then
+              return { "-z" }
+            elseif vim.bo[ctx.buf].filetype == "xml" then
+              return { "-x" }
+            end
+            return {}
+          end,
+        },
         prettier = {
           -- Prettier reads `.gitignore` and `.prettierignore` from its cwd
           -- and silently skips ignored files. In multi-repository setups
@@ -56,7 +70,6 @@ return {
         ["css"] = { "prettier", "stylelint" },
         ["scss"] = { "prettier", "stylelint" },
         ["less"] = { "prettier" },
-        ["html"] = { "prettier" },
         ["json"] = { "prettier" },
         ["jsonc"] = { "prettier" },
         ["yaml"] = { "prettier" },
@@ -66,8 +79,10 @@ return {
         ["python"] = { "isort", "black" },
         ["rust"] = { "rustfmt", lsp_format = "fallback" },
 
-        ["xml"] = {},
-        ["xhtml"] = {},
+        -- Page templates (*.pt, *.cpt, *.zpt) use xhtml; *.zcml uses xml.
+        ["html"] = { "zpretty" },
+        ["xml"] = { "zpretty" },
+        ["xhtml"] = { "zpretty" },
       },
     },
   },
