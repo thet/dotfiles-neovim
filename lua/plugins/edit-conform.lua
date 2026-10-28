@@ -34,6 +34,9 @@ return {
     },
     opts = {
       formatters = {
+        markdownlint = {
+          prepend_args = { "--disable", "MD034" },
+        },
         zpretty = {
           command = "zpretty",
           -- Format buffer contents via stdin; -i is only for on-disk files.
