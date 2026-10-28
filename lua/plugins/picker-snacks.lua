@@ -58,6 +58,7 @@ return {
       -- find files
       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#buffers
       { "<leader>,", function() Snacks.picker.buffers() end, desc = "Find buffers" },
+
       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#files
       {
         "<leader>.",
@@ -68,11 +69,47 @@ return {
             follow = true,
             ignored = true,
             hidden = true,
+            exclude = {
+              "__pycache__",
+              ".mypy_cache",
+              ".ruff_cache",
+              "dist/",
+              "var/",
+            },
           })
         end,
-        desc = "Find relative"
+        desc = "Find relative",
       },
-      { "<leader>/", function() Snacks.picker.files({ follow = true, ignored = true, hidden = true, }) end, desc = "Find root" },
+      {
+        "<leader>/",
+        function()
+          Snacks.picker.files({
+            follow = true,
+            ignored = true,
+            hidden = true,
+            exclude = {
+              "__pycache__",
+              ".mypy_cache",
+              ".ruff_cache",
+              "dist/",
+              "var/",
+            },
+
+            matcher = {
+              sort_empty = true,
+            },
+            transform = function(item)
+              local path = (item.file or item.text):gsub("^%./", "")
+              item.source_priority = (path:match("^src/") or path:match("^sources/")) and 1 or 0
+            end,
+            sort = {
+              fields = { "source_priority:desc", "score:desc", "#text", "idx" },
+            },
+          })
+        end,
+        desc = "Find root",
+      },
+
       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#recent
       { "<leader><", function() Snacks.picker.recent() end, desc = "Find recent" },
       -- https://github.com/folke/snacks.nvim/blob/main/docs/picker.md#git_files
