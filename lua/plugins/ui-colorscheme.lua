@@ -12,6 +12,9 @@ return {
     opts = {
       style = "moon",
       on_highlights = function(hl, c)
+        -- Split borders: try "#ffffff" for white, #a6e3a1 for light-green or c.blue for a theme accent.
+        local split_color = "#000000" -- black
+        hl.WinSeparator = { fg = split_color, bg = c.bg }
         local util = require("tokyonight.util")
         hl.DiagnosticVirtualTextError = { fg = util.darken(c.error, 1), bg = util.darken(c.error, 0.15), italic = true }
         hl.DiagnosticVirtualTextWarn =
